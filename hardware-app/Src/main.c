@@ -72,11 +72,8 @@ static void MX_USART2_UART_Init(void);
 "AT+CWLAP" Wifi info (find APs)
 "AT+CWJAP=”SSID”,”PASSWORD”" Connect to Wi-Fi
 "AT+CIFSR" Shows IP and MAC of component
-
-AT+CWJAP=”TN_24GHz_1E73C3”,”AWD3HUC376”
-
 */
-//uint8_t buffer[] = "AT+CWJAP="TN_24GHz_1E73C3","AWD3HUC376"\r\n";
+
 uint8_t buffer[] = "AT+PING=\"8.8.8.8\"\r\n";
 uint8_t buffer2[500];
 HAL_StatusTypeDef message;
