@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "../Src/private.c"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -47,10 +46,11 @@ ADC_HandleTypeDef hadc;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-unsigned int ADC_raw[3];
+unsigned int ADC_raw[4];
 int i=0;
 float Vdd;
 float Moisture;
+float Light;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,11 +91,12 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 	if(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_EOS)){
 		i = 0;
 		
-		Vdd = 3300 * (*VREFINT_CAL_ADDR) / ADC_raw[2];
+		Vdd = 3300 * (*VREFINT_CAL_ADDR) / ADC_raw[3];
 		
 		//ADC_raw = HAL_ADC_GetValue(hadc);
 		
 		Moisture = ADC_raw[0]/4095.0;		
+		Light = ADC_raw[1]/4095.0;
 	}
 }
 /* USER CODE END 0 */
@@ -137,9 +138,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	HAL_ADC_Start_IT(&hadc);
   /* USER CODE END 2 */
-
-	message = HAL_UART_Transmit(&huart2, buffer, sizeof(buffer), 1000);
-	message2 = HAL_UART_Receive(&huart2, buffer2, sizeof(buffer2), 1000);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -234,6 +232,13 @@ static void MX_ADC_Init(void)
   sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
   sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel to be converted. 
+  */
+  sConfig.Channel = ADC_CHANNEL_7;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
