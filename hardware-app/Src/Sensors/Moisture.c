@@ -8,6 +8,7 @@
 
 float draughtThreshhold; //0.0-1.0
 float moistureThreshhold; //0.0-1.0
+float currentMoisture;
 
 /**
 * Gets the current moisture in the plant
@@ -16,7 +17,12 @@ float moistureThreshhold; //0.0-1.0
 * 1 means 100% wet and 0 means that it is completly dry.
 */
 float getMoisture(){
-  /*Gets the moisture from the sensor...*/
+  currentMoisture = ADC_raw[moistureSensorPinIndex]/4095.0;
+	if(currentMoisture < 0)
+		currentMoisture = 0;
+	else if(currentMoisture > 1)
+		currentMoisture = 1;
+	return currentMoisture;
 }
 
 /*
