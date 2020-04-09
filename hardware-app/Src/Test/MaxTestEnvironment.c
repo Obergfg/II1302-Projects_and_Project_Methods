@@ -7,6 +7,8 @@
 */
 
 #include <stdio.h>
+#include <string.h>
+
 #include "../Sensors/Moisture.c"
 #include "../Sensors/Waterpump.c"
 
@@ -31,5 +33,9 @@ void checkTests(){
 
 
 void main() {
-  checkTests();
+  //checkTests();
+  uint8_t a[6] = "abc";
+  uint8_t b[6];
+  strcat(a, "cde");
+  printf(a);
 }

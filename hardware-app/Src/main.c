@@ -20,6 +20,12 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#include "../Src/private.c"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -70,12 +76,21 @@ static void MX_USART2_UART_Init(void);
 "AT+CWMODE_DEF" Sets the default Wi-Fi mode (Station/AP/Station+AP); configuration saved in the flash.
 "AT+GMR" Checks Version Information
 "AT+CWLAP" Wifi info (find APs)
-"AT+CWJAP=”SSID”,”PASSWORD”" Connect to Wi-Fi
+"AT+CWJAP=ï¿½SSIDï¿½,ï¿½PASSWORDï¿½" Connect to Wi-Fi
 "AT+CIFSR" Shows IP and MAC of component
 */
+uint8_t ATReset[] = "AT+RST\r\n";
+uint8_t ATConnectionSetting[] = "AT+CWMODE=1\r\n";
+uint8_t ATConnectWifi[] = ATCWJAP;
+uint8_t ATPingGoogle[] = "AT+PING=\"8.8.8.8\"\r\n";
 
-uint8_t buffer[] = "AT+PING=\"8.8.8.8\"\r\n";
-uint8_t buffer2[500];
+uint8_t ATResetResponse[50];
+uint8_t ATConnectionSettingResponse[50];
+uint8_t ATConnectWifiResponse[500];
+uint8_t ATPingGoogleResponse[50];
+uint8_t errorMessage[300];
+
+
 HAL_StatusTypeDef message;
 HAL_StatusTypeDef message2;
 
@@ -84,15 +99,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 		ADC_raw[i] = HAL_ADC_GetValue(hadc);
 		i++;
 	}
-	
+
 	if(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_EOS)){
 		i = 0;
-		
+
 		Vdd = 3300 * (*VREFINT_CAL_ADDR) / ADC_raw[3];
-		
+
 		//ADC_raw = HAL_ADC_GetValue(hadc);
-		
-		Moisture = ADC_raw[0]/4095.0;		
+
+		Moisture = ADC_raw[0]/4095.0;
 		Light = ADC_raw[1]/4095.0;
 	}
 }
@@ -108,7 +123,7 @@ int main(void)
 	// Initialize all configured peripherals
   //MX_GPIO_Init();
   //MX_USART2_UART_Init();
-	
+
 
   /* USER CODE END 1 */
 
@@ -136,6 +151,51 @@ int main(void)
 	HAL_ADC_Start_IT(&hadc);
   /* USER CODE END 2 */
 
+/*
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin); //Turn on green pin
+	HAL_UART_Transmit(&huart2, ATReset, sizeof(ATReset), 1000);
+	HAL_UART_Receive(&huart2, ATResetResponse, sizeof(ATResetResponse), 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, ATConnectionSetting, sizeof(ATConnectionSetting), 1000);
+	HAL_UART_Receive(&huart2, ATConnectionSettingResponse, sizeof(ATConnectionSettingResponse), 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000);
+	HAL_UART_Receive(&huart2, ATConnectWifiResponse, sizeof(ATConnectWifiResponse), 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000);
+	HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin); //Turn off green ping
+*/
+
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin); //Turn on green pin
+	if(HAL_UART_Transmit(&huart2, ATReset, sizeof(ATReset), 1000) == HAL_OK){
+		if(HAL_UART_Transmit(&huart2, ATConnectionSetting, sizeof(ATConnectionSetting), 1000) == HAL_OK){
+			if(HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000) == HAL_OK){
+				if(HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000) == HAL_OK){
+					HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
+					HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
+				} //Temp comment
+				else{
+					HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage[300]), 1000);
+				}
+			}
+			else{
+				HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage[300]), 1000);
+			}
+		}
+		else{
+			HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage[300]), 1000);
+		}
+	}
+	else{
+		HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage[300]), 1000);
+	}
+
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin); //Turn off green pin
+
+
+
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -158,7 +218,7 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI14;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -173,7 +233,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
@@ -204,7 +264,7 @@ static void MX_ADC_Init(void)
   /* USER CODE BEGIN ADC_Init 1 */
 
   /* USER CODE END ADC_Init 1 */
-  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc.Instance = ADC1;
   hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
@@ -224,7 +284,7 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
-  /** Configure for the selected ADC regular channel to be converted. 
+  /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
@@ -233,21 +293,21 @@ static void MX_ADC_Init(void)
   {
     Error_Handler();
   }
-  /** Configure for the selected ADC regular channel to be converted. 
+  /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_7;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure for the selected ADC regular channel to be converted. 
+  /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure for the selected ADC regular channel to be converted. 
+  /** Configure for the selected ADC regular channel to be converted.
   */
   sConfig.Channel = ADC_CHANNEL_VREFINT;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
@@ -351,7 +411,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
