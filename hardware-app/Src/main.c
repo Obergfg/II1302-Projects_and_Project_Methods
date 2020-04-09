@@ -172,7 +172,7 @@ int main(void)
 				if(HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000) == HAL_OK){
 					HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
 					HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
-				}
+				} //Temp comment
 				else{
 					HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage[300]), 1000);
 				}

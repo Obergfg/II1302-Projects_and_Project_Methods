@@ -1,5 +1,5 @@
 hardware-app/Src/private.c
-hardware-app/MDK-ARM/voltage2/
+hardware-app/MDK-ARM/voltage2/*
 *.crf
 *.o
 *.d
