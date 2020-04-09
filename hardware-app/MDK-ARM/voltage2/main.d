@@ -31,4 +31,8 @@ voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 voltage2\main.o: ../Src/../Src/private.c
