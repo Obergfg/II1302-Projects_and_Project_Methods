@@ -363,8 +363,8 @@ ARM Macro Assembler    Page 6
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=voltage2\startup_stm32f051x8.d -ovoltage2\startup_stm32f051x8.o -I
-.\RTE\_voltage2 -IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\
-Core\Include -IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\
+.\RTE\_voltage2 -IC:\Users\fredr\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\
+Core\Include -IC:\Users\fredr\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\
 Drivers\CMSIS\Device\ST\STM32F0xx\Include --predefine="__EVAL SETA 1" --predefi
 ne="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 529" --predefine="_R
 TE_ SETA 1" --predefine="STM32F051x8 SETA 1" --list=startup_stm32f051x8.lst sta

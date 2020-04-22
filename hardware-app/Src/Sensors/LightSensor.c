@@ -7,7 +7,7 @@
 */
 
 float getLight(){
-
+    return ADC_raw[lightSensorPinINdex]/4095.0;
 }
 
 /*
