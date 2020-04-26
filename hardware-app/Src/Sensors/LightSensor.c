@@ -1,20 +1,46 @@
 /**
- *Author: Author Name
- *Co-Authors: Co-Author1 Name, Co-Author2 Name
- *Date of generation: YYMMDD
- *Date of  update: YYMMDD
- *Code Properties: The properties of the code...
+ *Author: Fredrik Öberg
+ *Co-Authors: -
+ *Date of generation: 200425
+ *Date of  update: -
+ *Code Properties: The code takes raw data from the light sensor of the STM32 unit of the system 
+                   and changes it to a value between 0 and 1. The purpose of this is to check 
+                   what level of light the plant of the system receives.
 */
 
-float getLight(){
-    return ADC_raw[lightSensorPinINdex]/4095.0;
-}
+#include <math.h>
 
-/*
-  Test function used to test that functions work propetly.
+#include "LightSensor.h"
 
-  @return an integer to signalize which test that failed. returns 0 if all tests were successful.
-*/
-int lightSensorTest(){
 
-}
+    /*
+    * Checks the raw data gathered from the light sensor through the STM32 module. 
+    * It garantuees that the value returned is between 4095 and 0.
+    *
+    * @lightData is the raw data received from the light sensor
+    *
+    * @return is the checked light data.
+    */
+    float checkRawLightData(unsigned int lightData){
+        
+        if(0 > lightData)
+            return 0;
+        else if(4095 < lightData)
+            return 4095;
+        else
+            return lightData;
+    }
+
+    /*
+    * Sets the raw data received from the Light sensor of the STM32 module to a value between 100 and 0.
+    *
+    * @lightData is the raw data received from the light sensor
+    *
+    * @return is the updated light data.
+    */
+    float setLightData(unsigned int lightData){
+        
+         return roundf(checkRawLightData(lightData)/40.95);
+
+       return lightData;
+    }

@@ -21,6 +21,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "./Util/GeneralSensorFunctions.c"
+#include "./Wifi/Wifi.c"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -92,7 +94,7 @@ int main(void)
   MX_ADC_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+	setupWifi();
   /* USER CODE END 2 */
 
   /* Infinite loop */

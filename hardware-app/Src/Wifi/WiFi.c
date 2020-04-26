@@ -6,6 +6,8 @@
  *Code Properties: The properties of the code...
 */
 
+#include "../private.c"
+
 /*
  Commands:
 "AT+RESTORE" Restores the factory default settings of the module
@@ -38,8 +40,8 @@ int setupWifi(){
 			if(HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000) == HAL_OK){
 				if(HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000) == HAL_OK){
 					HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
-					HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
-					HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+				//	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
+					//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 					return 1; //success
 				} //Temp comment
 				else{
