@@ -34,7 +34,7 @@
     /*
     * Sets the raw data received from the Light sensor of the STM32 module to a value between 100 and 0.
     *
-    * @lightData is the raw data received from the light sensor
+    * @lightData is the raw data received from the light sensor and should be between 4095 and 0.
     *
     * @return is the updated light data.
     */

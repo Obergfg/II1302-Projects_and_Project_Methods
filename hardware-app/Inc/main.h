@@ -66,6 +66,7 @@ void Error_Handler(void);
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
 #define SWCLK_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 #define VREFINT_CAL_ADDR ((uint16_t*)((uint16_t) 0x1FFFF7BA))

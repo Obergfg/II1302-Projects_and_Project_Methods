@@ -17,6 +17,8 @@
     void testCheckRawLightDataD(CuTest *tc);
     void testCheckRawLightDataE(CuTest *tc);
     void testCheckRawLightDataF(CuTest *tc);
+    void testCheckRawLightDataG(CuTest *tc);
+    void testCheckRawLightDataH(CuTest *tc);
 
     void testSetLightDataA(CuTest *tc);
     void testSetLightDataB(CuTest *tc);

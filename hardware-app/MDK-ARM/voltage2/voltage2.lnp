@@ -3,6 +3,7 @@
 "voltage2\main.o"
 "voltage2\stm32f0xx_it.o"
 "voltage2\stm32f0xx_hal_msp.o"
+"voltage2\wifi.o"
 "voltage2\stm32f0xx_hal_adc.o"
 "voltage2\stm32f0xx_hal_adc_ex.o"
 "voltage2\stm32f0xx_hal_rcc.o"
