@@ -158,6 +158,7 @@ Test-case kopplas ihop med use-case
   * @brief  The application entry point.
   * @retval int
   */
+uint8_t MAC[17]; 
 int main(void)
 {
 	initialize();
@@ -166,14 +167,33 @@ int main(void)
 	
 	//setupWifi();
 	//updateCIPSEND();
-	testSendBuffer();
+	//testSendBuffer();
 	
 	
-	/*
+	
 	if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000) == HAL_OK){
 		HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
 	}
-	*/
+	int save = 0;
+	int startCounter = -1;
+	int indexCounter = 0;
+	for(int i = 0; i < 100; i++){
+		if(wifiTesting[i] == 'M'){
+			startCounter = 5;
+			save = 1;
+		}
+		else{
+			startCounter--;
+		}
+		if(save == 1 && startCounter <= 0){
+			MAC[indexCounter] = wifiTesting[i];
+			indexCounter++;
+		}
+		if(indexCounter >= 17){
+			break;
+		}
+	}
+	
 	
 	/*
 	if(HAL_UART_Transmit(&huart2, wifiCommand, sizeof(wifiCommand), 1000) == HAL_OK){
