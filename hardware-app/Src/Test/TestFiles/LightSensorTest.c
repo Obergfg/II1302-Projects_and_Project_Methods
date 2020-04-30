@@ -4,7 +4,7 @@
  *Date of generation: 200426
  *Date of  update: -
  *Code Properties: The code serves as unit tests for the functions 
-                   in the file LightSensor.c and it tests that funcitons 
+                   in the file LightSensor.c and it tests that functions 
                    operates as espected given a varied amount of data 
                    from small negative values to large1 positive.
 */
@@ -91,42 +91,42 @@
     void testSetLightDataA(CuTest *tc) {
         int input = 4095;
         int actual = setLightData(input);
-        int expected = 100;
+        int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataB(CuTest *tc) {
         int input = 4000;
         int actual = setLightData(input);
-        int expected = 98;
+        int expected = 2;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataC(CuTest *tc) {
         int input = 100;
         int actual = setLightData(input);
-        int expected = 2;
+        int expected = 98;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataD(CuTest *tc) {
         int input = 0;
         int actual = setLightData(input);
-        int expected = 0;
+        int expected = 100;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataE(CuTest *tc) {
         int input = -99999;
         int actual = setLightData(input);
-        int expected = 100;
+        int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataF(CuTest *tc) {
         int input = -1;
         int actual = setLightData(input);
-        int expected = 100;
+        int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
@@ -140,14 +140,14 @@
     void testSetLightDataH(CuTest *tc) {
         int input = 2147483647;
         int actual = setLightData(input);
-        int expected = 100;
+        int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
     void testSetLightDataI(CuTest *tc) {
         int input = -2147483648;
         int actual = setLightData(input);
-        int expected = 100;
+        int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
@@ -160,6 +160,7 @@
     */
     CuSuite* lightSensorGetSuite() {
         CuSuite* suite = CuSuiteNew();
+
         SUITE_ADD_TEST(suite, testCheckRawLightDataA);
         SUITE_ADD_TEST(suite, testCheckRawLightDataB);
         SUITE_ADD_TEST(suite, testCheckRawLightDataC);
@@ -180,3 +181,4 @@
 
         return suite;
     }
+    
