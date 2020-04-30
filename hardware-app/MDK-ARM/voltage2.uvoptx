@@ -155,6 +155,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>ADC_raw</ItemText>
         </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>receiveBuffer</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

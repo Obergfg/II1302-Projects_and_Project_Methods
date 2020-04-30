@@ -1,8 +1,8 @@
 /**
  *Authors: Fredrik Öberg and Max Ryblad
- *Co-Authors: -
+ *Co-Authors: 
  *Date of generation: 200429
- *Date of  update: -
+ *Date of  update: 20-04-30
  *Code Properties: The code initiates the program.
 */
 
@@ -20,7 +20,7 @@ static void MX_ADC_Init(void);
 static void MX_USART2_UART_Init(void);
 
 /* ADC pins */
-ADC_HandleTypeDef hadc;			
+ADC_HandleTypeDef hadc;
 UART_HandleTypeDef huart2;
 
 /* Sensor variables */
@@ -50,11 +50,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 }
 
 /*
-    * Is the main function of the program and is called upon when the program is initiated.
-    *
-		* @return is 0 if the program has executed properly.
-    *
-    */
+	* Is the main function of the program and is called upon when the program is initiated.
+	*
+	* @return is 0 if the program has executed properly.
+	*
+*/
 int main(void)
 {
 
@@ -70,15 +70,19 @@ int main(void)
   MX_USART2_UART_Init();
 
   setSSLbuffer(&huart2);
-
-
+	
   /* Infinite loop */
   while (1)
   {
-			HAL_ADC_Start_IT(&hadc);
-		  HAL_Delay(1000);
-			initiateLightTransmission(ADC_raw[1], &huart2);
+		HAL_ADC_Start_IT(&hadc); //Read current sensor values
+		HAL_Delay(1000);
+		
+		//initiateLightTransmission(ADC_raw[1], &huart2);
+		
+		int moisturePercentage = 100-ADC_raw[0]/40.95;
+		initiateMoistureTransmission(moisturePercentage, &huart2);
   }
+	
  
 }
 
