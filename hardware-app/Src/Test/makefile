@@ -22,13 +22,7 @@ SENSORSPATH =  ../Sensors
 TESTFILESPATH = TestFiles
 
 #The path to the header files needed when compiling the sensor files as well as the gcc include option command.
-SENSORINCLUDES = -I$(SENSORSPATH)/Include
-
-#The path to the header files needed when compiling the test files as well as the gcc include option command.
-TESTFILESINCLUDE = -I$(TESTFILESPATH)/Include $(SENSORINCLUDES)
-
-# The paths to the the header files needed for UnitTests.c
-UNITTESTS = -IInclude $(SENSORINCLUDES) $(TESTFILESINCLUDE)
+HEADERINCLUDES = -I../../Inc
 
 # All the object files needed for the unit test executiion.
 OBJECTS = UnitTests.o CuTest.o LightSensor.o LightSensorTest.o
@@ -57,7 +51,7 @@ all: $(OBJECTS)
 
 #The main Unit Test file rule. 
 UnitTests.o:
-	gcc $(UNITTESTS) $(CFLAGS) UnitTests.c
+	gcc $(HEADERINCLUDES) $(CFLAGS) UnitTests.c
 
 #The CuTest unit test framework rule.
 CuTest.o:
@@ -65,11 +59,11 @@ CuTest.o:
 
 #The rules for the sensor source code files being tested	
 LightSensor.o:
-	gcc $(SENSORINCLUDES) $(CFLAGS) $(SENSORSPATH)/LightSensor.c
+	gcc $(HEADERINCLUDES) $(CFLAGS) $(SENSORSPATH)/LightSensor.c
 
 #The rules for the test files for the sensor source codes.
 LightSensorTest.o:
-	gcc $(TESTFILESINCLUDE) $(CFLAGS) $(TESTFILESPATH)/LightSensorTest.c
+	gcc $(HEADERINCLUDES) $(CFLAGS) $(TESTFILESPATH)/LightSensorTest.c
 	
 # When the test has been executed type "make clean" in your command 
 # line of choice to remove the object files as well as the created exe file.

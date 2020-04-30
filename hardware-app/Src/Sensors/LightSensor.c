@@ -40,7 +40,7 @@
     */
     float setLightData(unsigned int lightData){
         
-         return roundf(checkRawLightData(lightData)/40.95);
+         return 100 - roundf(checkRawLightData(lightData)/40.95);
 
        return lightData;
     }
