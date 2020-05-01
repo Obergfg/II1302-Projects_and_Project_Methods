@@ -1,5 +1,5 @@
 /**
- *Authors: Fredrik Öberg and Max Ryblad
+ *Authors: Fredrik ï¿½berg and Max Ryblad
  *Co-Authors: -
  *Date of generation: 200429
  *Date of  update: -
@@ -8,7 +8,7 @@
 
 
 #include "main.h"
-#include "WiFi.h"
+#include "Controller.h"
 
 #include<string.h>
 #include<stdio.h>
@@ -19,6 +19,7 @@ static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
 static void MX_USART2_UART_Init(void);
 
+
 /* ADC pins */
 ADC_HandleTypeDef hadc;			
 UART_HandleTypeDef huart2;
@@ -28,7 +29,7 @@ unsigned int ADC_raw[2];
 int ADC_i=0;
 
 
-/*
+   /*
     * Receives the digital data received from the light and moisture sensors of the STM32 module
 		* and sends them to the controller.
     *
@@ -42,15 +43,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 		ADC_i++;
 	}
 	
-	if(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_EOS)){
+	if(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_EOS))
 		ADC_i = 0;	
-		
-		
-	}
 }
 
 /*
-    * Is the main function of the program and is called upon when the program is initiated.
+    * Is the main function of the program and is called upon when the program
+    * is initiated. The HAL_ADC_Start_IT function call in the infinite loop 
+    * initiates the sensor data retrieval through the HAL_ADC_ConvCpltCallback function.
     *
 		* @return is 0 if the program has executed properly.
     *
@@ -69,15 +69,13 @@ int main(void)
   MX_ADC_Init();
   MX_USART2_UART_Init();
 
-  setSSLbuffer(&huart2);
-
 
   /* Infinite loop */
   while (1)
   {
 			HAL_ADC_Start_IT(&hadc);
 		  HAL_Delay(1000);
-			initiateLightTransmission(ADC_raw[1], &huart2);
+			updateDatabase(ADC_raw, &huart2);
   }
  
 }
@@ -280,6 +278,3 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif /* USE_FULL_ASSERT */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-
-

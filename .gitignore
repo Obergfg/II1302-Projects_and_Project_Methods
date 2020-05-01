@@ -1,4 +1,4 @@
-hardware-app/Src/private.c
+hardware-app/Src/WiFi/private.c
 hardware-app/MDK-ARM/voltage2/*
 *.crf
 *.o

@@ -84,7 +84,7 @@
 
 
     /*
-    * UNit tests to the function setLightData. 
+    * Unit tests to the function setLightData. 
     *
     * @tc is a pointer to the suite the test is added to according to the framwork CuTest convention.
     */
@@ -146,17 +146,16 @@
 
     void testSetLightDataI(CuTest *tc) {
         int input = -2147483648;
-        int actual = setLightData(input);
+        int actual = setLightData(input);  
         int expected = 0;
         CuAssertIntEquals(tc, expected, actual);
     }
 
 
-
     /*
     * Collects the testfunctions of this files and adds them to a common testing suite.
     *
-    * @return is the suite containgin all the tests of this file.
+    * @return is the suite containing all the tests of this file.
     */
     CuSuite* lightSensorGetSuite() {
         CuSuite* suite = CuSuiteNew();
@@ -181,4 +180,3 @@
 
         return suite;
     }
-    

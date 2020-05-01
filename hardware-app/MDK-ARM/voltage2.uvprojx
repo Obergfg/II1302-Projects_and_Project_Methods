@@ -412,6 +412,21 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Wifi\WiFi.c</FilePath>
             </File>
+            <File>
+              <FileName>LightSensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Sensors\LightSensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Controller.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Controller\Controller.c</FilePath>
+            </File>
+            <File>
+              <FileName>private.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Wifi\private.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -23,9 +23,9 @@
     */
     float checkRawLightData(unsigned int lightData){
         
-        if(0 > lightData)
-            return 0;
-        else if(4095 < lightData)
+        
+        
+			if(4095 < lightData)
             return 4095;
         else
             return lightData;
@@ -41,6 +41,4 @@
     float setLightData(unsigned int lightData){
         
          return 100 - roundf(checkRawLightData(lightData)/40.95);
-
-       return lightData;
     }
