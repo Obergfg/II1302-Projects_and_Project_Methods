@@ -1,5 +1,5 @@
 /**
- *Author: Fredrik Öberg
+ *Author: Fredrik ï¿½berg
  *Co-Authors: -
  *Date of generation: 200429
  *Date of  update: -
@@ -23,7 +23,7 @@ uint8_t receiveBuffer[512];
     *
     * @return is the status of the connection between STM32 and ESP8266.
     */
-HAL_StatusTypeDef transmit(uint8_t* command ,int size, UART_HandleTypeDef *huart){
+HAL_StatusTypeDef transmit(uint8_t* command, int size, UART_HandleTypeDef *huart){
 
 	if(HAL_UART_Transmit(huart, command, size, 1000) == HAL_OK)
 			return	HAL_UART_Receive(huart, receiveBuffer, sizeof(receiveBuffer), 1000);
@@ -177,6 +177,34 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 	
 }
 
+HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart){
+
+	uint8_t contentLength[8];
+	uint8_t sendBuffer[32];
+	uint8_t postBuffer[256];
+	
+	sprintf(contentLength, "%d", data);
+	
+	int cl = 0;
+	
+	while(contentLength[cl] != NULL)
+		   cl++;
+	
+	sprintf(postBuffer, "POST /Water.json HTTP/1.1\r\nHost: projekt-och-projektmetoder.firebaseio.com\r\nContent-Type: text/plain\r\nContent-Length: %d\r\n\r\n%d\r\n\r\n\r\n" ,cl ,data);
+	
+	int cnt = 0;
+	
+	while(postBuffer[cnt] != NULL)
+		   cnt++;
+	
+	sprintf(sendBuffer, "AT+CIPSEND=%d\r\n", cnt);
+	
+	transmit(sendBuffer, sizeof(sendBuffer), huart);
+	
+	return	transmit(postBuffer, cnt, huart);
+	
+}
+
 /*
     * Closes the connection the ESP8266 module has established.
     *
@@ -201,7 +229,7 @@ HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
     */
 HAL_StatusTypeDef initiateLightTransmission(unsigned int lightData, UART_HandleTypeDef *huart){
 	
-			setSSLbuffer(huart);
+		setSSLbuffer(huart);
 	    setMux(huart);
 	    initateConnection(huart);
     	sendLightData(lightData, huart);

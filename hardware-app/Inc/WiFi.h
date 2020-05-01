@@ -1,9 +1,9 @@
 
 /**
  *Author: Fredrik Öberg
- *Co-Authors: -
+ *Co-Authors: Max Ryblad
  *Date of generation: 200429
- *Date of  update: -
+ *Date of  update: 20-04-30
  *Code Properties: The code serves as a header file for the WiFi.c file and contains 
  *                 declarations of functions and variables.
 */
@@ -26,4 +26,5 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart);
 
 HAL_StatusTypeDef initiateLightTransmission(unsigned int data, UART_HandleTypeDef *huart);
+HAL_StatusTypeDef initiateMoistureTransmission(unsigned int data, UART_HandleTypeDef *huart);
 #endif
