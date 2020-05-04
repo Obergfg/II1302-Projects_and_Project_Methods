@@ -8,9 +8,11 @@
 */
 
 
+#include "../constants.c"
 #include "Controller.h"
 #include "WiFi.h"
 #include "LightSensor.h"
+#include "Moisture.h"
 
 
 
@@ -24,5 +26,10 @@
     */
 void updateDatabase(unsigned int* rawData, UART_HandleTypeDef *huart){
 
-    initiateLightTransmission(setLightData(rawData[1]), huart);
+	if(UPLOADLIGHT == 1){
+			initiateLightTransmission(setLightData(rawData[lightSensorPinIndex]), huart);
+	}
+	if(UPLOADMOISTURE == 1){
+			initiateMoistureTransmission(calculateMoisture(rawData[moistureSensorPinIndex]), huart);
+	}
 }

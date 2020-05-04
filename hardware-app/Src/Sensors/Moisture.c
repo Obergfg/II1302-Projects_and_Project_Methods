@@ -2,22 +2,24 @@
  *Author: Max
  *Co-Authors:
  *Date of generation: 20/04/03
- *Date of  update: 20/04/03
+ *Date of  update: 20/05/04
  *Code Properties: Code controlling the moisture sensor.
 */
 
-float draughtThreshhold; //0.0-1.0
+#include "Moisture.h"
+
+float draughtThreshhold; 	//0.0-1.0
 float moistureThreshhold; //0.0-1.0
-float currentMoisture;
+float currentMoisture;		//0.0-1.0
 
 /**
-* Gets the current moisture in the plant
+* Gets the current moisture of the plant
 *
 * @return float value between 0 and 1 indicating the percentage of wetness.
 * 1 means 100% wet and 0 means that it is completly dry.
 */
-float getMoisture(){
-  currentMoisture = ADC_raw[moistureSensorPinIndex]/4095.0;
+float calculateMoisture(unsigned int rawSensorData){
+  currentMoisture = rawSensorData/4095.0;
 	if(currentMoisture < 0)
 		currentMoisture = 0;
 	else if(currentMoisture > 1)

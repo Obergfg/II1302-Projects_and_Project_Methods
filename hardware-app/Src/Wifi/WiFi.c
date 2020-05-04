@@ -190,7 +190,10 @@ HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart)
 	while(contentLength[cl] != NULL)
 		   cl++;
 	
-	sprintf(postBuffer, "POST /Water.json HTTP/1.1\r\nHost: projekt-och-projektmetoder.firebaseio.com\r\nContent-Type: text/plain\r\nContent-Length: %d\r\n\r\n%d\r\n\r\n\r\n" ,cl ,data);
+	char post[] = POSTMOISTURE;
+	
+	sprintf(postBuffer, post, cl, data);
+	//sprintf(postBuffer, "POST /Water.json HTTP/1.1\r\nHost: projekt-och-projektmetoder.firebaseio.com\r\nContent-Type: text/plain\r\nContent-Length: %d\r\n\r\n%d\r\n\r\n\r\n" ,cl ,data);
 	
 	int cnt = 0;
 	
@@ -230,10 +233,28 @@ HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
 HAL_StatusTypeDef initiateLightTransmission(unsigned int lightData, UART_HandleTypeDef *huart){
 	
 		setSSLbuffer(huart);
-	    setMux(huart);
-	    initateConnection(huart);
-    	sendLightData(lightData, huart);
+		setMux(huart);
+		initateConnection(huart);
+		sendLightData(lightData, huart);
+
+		return closeConnection(huart);
+}
+
+/*
+    * Initiates the complete moisture data transmission process of the ESP8266 module.
+    *
+    * @moistureData is the moisture data received from the STM 32 module. 
+		* @huart handles Structure definition
+    *
+    * @return is the status of the connection between STM32 and ESP8266.
+    */
+HAL_StatusTypeDef initiateMoistureTransmission(unsigned int moistureData, UART_HandleTypeDef *huart){
 	
-	    return closeConnection(huart);
+		setSSLbuffer(huart);
+		setMux(huart);
+		initateConnection(huart);
+		sendMoistureData(moistureData, huart);
+
+		return closeConnection(huart);
 }
 
