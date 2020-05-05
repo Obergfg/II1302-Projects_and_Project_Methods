@@ -1,5 +1,5 @@
 /**
- *Author: Max
+ *Author: Max Ryblad
  *Co-Authors:
  *Date of generation: 20/04/03
  *Date of  update: 20/05/04
