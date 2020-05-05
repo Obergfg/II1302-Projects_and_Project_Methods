@@ -12,6 +12,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-void updateDatabase(unsigned int* rawData, UART_HandleTypeDef *huart);
+void startController(UART_HandleTypeDef *huart);
+void loop(UART_HandleTypeDef *huart);
+int checkWifiConnection(void);
+int connectToWifi(void);
+void plantTooDryCheck(int);
+void updateLED(int);
+void updateDatabase(int light, int water, UART_HandleTypeDef *huart);
 
 #endif

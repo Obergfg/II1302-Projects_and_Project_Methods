@@ -10,11 +10,11 @@
 #ifndef MOISTURE_H
 #define MOISTURE_H
 
-float calculateMoisture(unsigned int rawSensorData);
-float getMoistureThreshhold(void);
-void setMoistureThreshhold(float newMoisture);
-float getDraughtThreshhold(void);
-void setDraughtThreshhold(float newMoisture);
+int calculateMoisture(unsigned int rawSensorData);
+int getMoistureThreshhold(void);
+void setMoistureThreshhold(int newMoisture);
+int getDraughtThreshhold(void);
+void setDraughtThreshhold(int newMoisture);
 
 
 #endif

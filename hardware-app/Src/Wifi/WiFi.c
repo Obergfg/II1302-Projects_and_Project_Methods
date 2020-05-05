@@ -1,8 +1,8 @@
 /**
  *Author: Fredrik �berg
- *Co-Authors: -
+ *Co-Authors: Max Ryblad
  *Date of generation: 200429
- *Date of  update: -
+ *Date of  update: 20-05-05
  *Code Properties: The code handles the communication between the STM32 module and the ESP8266 wifi module.
 */
 
@@ -177,6 +177,14 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 	
 }
 
+/*
+* Sends the given moisture data to the Firebase database.
+*
+* @data is the moisture in percent, an int between 0 and 100.
+* @huart handles Structure definition
+*
+* @return is the status of the connection between STM32 and ESP8266.
+*/
 HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart){
 
 	uint8_t contentLength[8];

@@ -1,8 +1,8 @@
 Dependencies for Project 'voltage2', Target 'voltage2': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
 F (startup_stm32f051x8.s)(0x5E8C2CF2)(--cpu Cortex-M0 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "STM32F051x8 SETA 1"--list startup_stm32f051x8.lst --xref -o voltage2\startup_stm32f051x8.o --depend voltage2\startup_stm32f051x8.d)
-F (../Src/main.c)(0x5EAFE0DD)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\main.o --omf_browse voltage2\main.crf --depend voltage2\main.d)
-I (../Inc/main.h)(0x5EAFE971)
+F (../Src/main.c)(0x5EB15234)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\main.o --omf_browse voltage2\main.crf --depend voltage2\main.d)
+I (../Inc/main.h)(0x5EB15977)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
@@ -33,11 +33,11 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
-I (../Inc/Controller.h)(0x5EAFDD9E)
+I (../Inc/Controller.h)(0x5EB1532E)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9B2678)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B267A)
 F (../Src/stm32f0xx_it.c)(0x5E8C2CF3)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\stm32f0xx_it.o --omf_browse voltage2\stm32f0xx_it.crf --depend voltage2\stm32f0xx_it.d)
-I (../Inc/main.h)(0x5EAFE971)
+I (../Inc/main.h)(0x5EB15977)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
@@ -70,7 +70,7 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_it.h)(0x5E8C2CF2)
 F (../Src/stm32f0xx_hal_msp.c)(0x5EAFD8DF)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\stm32f0xx_hal_msp.o --omf_browse voltage2\stm32f0xx_hal_msp.crf --depend voltage2\stm32f0xx_hal_msp.d)
-I (../Inc/main.h)(0x5EAFE971)
+I (../Inc/main.h)(0x5EB15977)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
@@ -101,9 +101,9 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
-F (..\Src\Wifi\WiFi.c)(0x5EAFDFCB)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\wifi.o --omf_browse voltage2\wifi.crf --depend voltage2\wifi.d)
-I (..\Src\Wifi\private.c)(0x5EAFE88E)
-I (../Inc/main.h)(0x5EAFE971)
+F (..\Src\Wifi\WiFi.c)(0x5EB15765)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\wifi.o --omf_browse voltage2\wifi.crf --depend voltage2\wifi.d)
+I (..\Src\Wifi\private.c)(0x5EAFEA34)
+I (../Inc/main.h)(0x5EB15977)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
@@ -134,14 +134,14 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
-I (../Inc/WiFi.h)(0x5EAFDD9E)
+I (../Inc/WiFi.h)(0x5EB00526)
 F (..\Src\Sensors\LightSensor.c)(0x5EAFDD9F)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\lightsensor.o --omf_browse voltage2\lightsensor.crf --depend voltage2\lightsensor.d)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9B2672)
 I (../Inc/LightSensor.h)(0x5EAFDD9E)
-F (..\Src\Controller\Controller.c)(0x5EAFE919)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\controller.o --omf_browse voltage2\controller.crf --depend voltage2\controller.d)
-I (..\Src\Controller\../constants.c)(0x5EAFE45A)
-I (../Inc/Controller.h)(0x5EAFDD9E)
-I (../Inc/main.h)(0x5EAFE971)
+F (..\Src\Controller\Controller.c)(0x5EB161D6)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\controller.o --omf_browse voltage2\controller.crf --depend voltage2\controller.d)
+I (../Inc/Constants.h)(0x5EB159BA)
+I (../Inc/Controller.h)(0x5EB1532E)
+I (../Inc/main.h)(0x5EB15977)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
@@ -172,14 +172,47 @@ I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
-I (../Inc/WiFi.h)(0x5EAFDD9E)
+I (../Inc/WiFi.h)(0x5EB00526)
 I (../Inc/LightSensor.h)(0x5EAFDD9E)
-I (../Inc/Moisture.h)(0x5EAFE61B)
-I (../Inc/private.h)(0x5EAFE970)
-F (..\Src\Wifi\private.c)(0x5EAFE88E)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\private.o --omf_browse voltage2\private.crf --depend voltage2\private.d)
-F (..\Src\Sensors\Moisture.c)(0x5EAFE66D)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\moisture.o --omf_browse voltage2\moisture.crf --depend voltage2\moisture.d)
-I (../Inc/Moisture.h)(0x5EAFE61B)
-F (..\Src\constants.c)(0x5EAFE45A)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\constants.o --omf_browse voltage2\constants.crf --depend voltage2\constants.d)
+I (../Inc/Moisture.h)(0x5EB15332)
+I (../Inc/DisplayLight.h)(0x5EB151BD)
+F (..\Src\Wifi\private.c)(0x5EAFEA34)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\private.o --omf_browse voltage2\private.crf --depend voltage2\private.d)
+F (..\Src\Sensors\Moisture.c)(0x5EB161FF)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\moisture.o --omf_browse voltage2\moisture.crf --depend voltage2\moisture.d)
+I (../Inc/Moisture.h)(0x5EB15332)
+F (..\Src\constants.c)(0x5EB159D1)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\constants.o --omf_browse voltage2\constants.crf --depend voltage2\constants.d)
+I (../Inc/Constants.h)(0x5EB159BA)
+F (..\Src\Util\DisplayLight.c)(0x5EB15994)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\displaylight.o --omf_browse voltage2\displaylight.crf --depend voltage2\displaylight.d)
+I (../Inc/main.h)(0x5EB15977)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
+I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Include/core_cm0.h)(0x5E8C2CF2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B2678)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5E8C2CF2)
+I (../Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h)(0x5E8C2CF2)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5D9B2678)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_exti.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h)(0x5E8C2CF2)
+I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h)(0x5E8C2CF2)
 F (../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c)(0x5E8C2CF2)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_voltage2-IC:\Users\Rybla\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\Rybla\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F051x8 -DUSE_HAL_DRIVER -DSTM32F051x8-o voltage2\stm32f0xx_hal_adc.o --omf_browse voltage2\stm32f0xx_hal_adc.crf --depend voltage2\stm32f0xx_hal_adc.d)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x5E8C2CF2)
 I (../Inc/stm32f0xx_hal_conf.h)(0x5E8C2CF2)

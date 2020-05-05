@@ -8,6 +8,7 @@
 
 
 #include "main.h"
+//#include "Constants.c"
 #include "Controller.h"
 
 #include<string.h>
@@ -48,6 +49,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 }
 
 /*
+	Updates the ADC_raw variable to contain the current values gathered from the sensors.
+*/
+unsigned int *updateSensorValues(){
+	HAL_ADC_Start_IT(&hadc);
+	return ADC_raw;
+}
+
+/*
 
     * Is the main function of the program and is called upon when the program
     * is initiated. The HAL_ADC_Start_IT function call in the infinite loop 
@@ -70,16 +79,18 @@ int main(void)
   MX_ADC_Init();
   MX_USART2_UART_Init();
 
-
-
+	updateSensorValues();
+	startController(&huart2);
+	
   /* Infinite loop */
+	/*
   while (1)
   {
-			HAL_ADC_Start_IT(&hadc);
-		  HAL_Delay(1000);
-			updateDatabase(ADC_raw, &huart2);
-	
+		updateSensorValues();
+		HAL_Delay(1000);
+		updateDatabase(ADC_raw, &huart2);
 	}
+	*/
  
 }
 
