@@ -3,9 +3,9 @@
 <title>Static Call Graph - [voltage2\voltage2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image voltage2\voltage2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue May 05 14:54:27 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed May 06 08:38:56 2020
 <BR><P>
-<H3>Maximum Stack Usage =        640 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        648 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 <P>
@@ -326,8 +326,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkRawLightData
 </UL>
 
-<P><STRONG><a name="[3d]"></a>__aeabi_ui2d</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, dfltui.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_ui2d &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[3d]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
@@ -416,7 +416,7 @@ Global Symbols
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_clz
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
@@ -778,7 +778,7 @@ Global Symbols
 <P><STRONG><a name="[73]"></a>calculateMoisture</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, moisture.o(i.calculateMoisture))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = calculateMoisture &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
@@ -842,8 +842,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateDatabase
 </UL>
 
-<P><STRONG><a name="[7f]"></a>loop</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, controller.o(i.loop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[7f]"></a>loop</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, controller.o(i.loop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateMoisture
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
@@ -857,7 +857,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[23]"></a>main</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startController
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -955,7 +955,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[85]"></a>startController</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, controller.o(i.startController))
-<BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setDraughtThreshhold
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop

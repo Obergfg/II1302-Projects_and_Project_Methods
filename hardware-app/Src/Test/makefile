@@ -61,13 +61,13 @@ CuTest.o:
 LightSensor.o:
 	gcc $(HEADERINCLUDES) $(CFLAGS) $(SENSORSPATH)/LightSensor.c
 
-#The rules for the test files for the sensor source codes.
-LightSensorTest.o:
-	gcc $(HEADERINCLUDES) $(CFLAGS) $(TESTFILESPATH)/LightSensorTest.c
-
 #The rules for the sensor source code files being tested
 Moisture.o:
 	gcc $(HEADERINCLUDES) $(CFLAGS) $(SENSORSPATH)/Moisture.c
+
+#The rules for the test files for the sensor source codes.
+LightSensorTest.o:
+	gcc $(HEADERINCLUDES) $(CFLAGS) $(TESTFILESPATH)/LightSensorTest.c
 
 #The rules for the test files for the sensor source codes.
 MoistureTest.o:

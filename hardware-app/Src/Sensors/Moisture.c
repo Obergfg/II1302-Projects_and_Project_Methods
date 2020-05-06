@@ -15,10 +15,12 @@ int currentMoisture;		//0 - 100
 /**
 * Gets the current moisture of the plant
 *
+*	@rawSensorData value between 0 and 4095 representing resistance to sensor. Higher number means less water.
+*
 * @return float value between 0 and 100 indicating the percentage of wetness.
 * 100 means 100% wet and 0 means that it is completly dry.
 */
-int calculateMoisture(unsigned int rawSensorData){
+int calculateMoisture(int rawSensorData){
   currentMoisture = (1-(rawSensorData/4095.0)) * 100;
 	if(currentMoisture < 0)
 		currentMoisture = 0;

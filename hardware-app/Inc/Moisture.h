@@ -10,7 +10,7 @@
 #ifndef MOISTURE_H
 #define MOISTURE_H
 
-int calculateMoisture(unsigned int rawSensorData);
+int calculateMoisture(int rawSensorData);
 int getMoistureThreshhold(void);
 void setMoistureThreshhold(int newMoisture);
 int getDraughtThreshhold(void);

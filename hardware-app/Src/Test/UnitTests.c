@@ -1,11 +1,11 @@
   /**
  *Author: Fredrik Öberg
 
- *Co-Authors: -
+ *Co-Authors: Max Ryblad
 
  *Date of generation: 200425
 
- *Date of  update: 200426
+ *Date of  update: 200506
 
  *Code Properties: The code contains the main function of the unit testing 
  *                 procedure of "The Farm" project. It initializes the unit 
@@ -17,6 +17,7 @@
   #include "UnitTests.h"
   #include "CuTest.h"
   #include "LightSensorTest.h"
+  #include "MoistureTest.h"
 
     
     /*
@@ -27,6 +28,7 @@
         CuSuite* testSuite = CuSuiteNew();
         
         CuSuiteAddSuite(testSuite, lightSensorGetSuite());
+		CuSuiteAddSuite(testSuite, moistureGetSuite());
     
         CuSuiteRun(testSuite);
         CuSuiteSummary(testSuite, output);

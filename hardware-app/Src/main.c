@@ -81,17 +81,6 @@ int main(void)
 
 	updateSensorValues();
 	startController(&huart2);
-	
-  /* Infinite loop */
-	/*
-  while (1)
-  {
-		updateSensorValues();
-		HAL_Delay(1000);
-		updateDatabase(ADC_raw, &huart2);
-	}
-	*/
- 
 }
 
 
