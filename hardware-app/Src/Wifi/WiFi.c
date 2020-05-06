@@ -132,8 +132,6 @@ HAL_StatusTypeDef setMux(UART_HandleTypeDef *huart){
     */
 HAL_StatusTypeDef initateConnection(UART_HandleTypeDef *huart){
 
-	//uint8_t start[] = "AT+CIPSTART=\"SSL\",\"projekt-och-projektmetoder.firebaseio.com\",443\r\n";
-
 	uint8_t start[] = CIPSTART;
 	return	transmit(start, sizeof(start), huart);
 }
@@ -190,7 +188,9 @@ HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart)
 	while(contentLength[cl] != NULL)
 		   cl++;
 	
-	sprintf(postBuffer, "POST /Water.json HTTP/1.1\r\nHost: projekt-och-projektmetoder.firebaseio.com\r\nContent-Type: text/plain\r\nContent-Length: %d\r\n\r\n%d\r\n\r\n\r\n" ,cl ,data);
+	char post[] = POSTMOISTURE;
+	
+	sprintf(postBuffer, post ,cl ,data);
 	
 	int cnt = 0;
 	
@@ -229,7 +229,7 @@ HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
     */
 HAL_StatusTypeDef initiateLightTransmission(unsigned int lightData, UART_HandleTypeDef *huart){
 	
-		setSSLbuffer(huart);
+		  setSSLbuffer(huart);
 	    setMux(huart);
 	    initateConnection(huart);
     	sendLightData(lightData, huart);

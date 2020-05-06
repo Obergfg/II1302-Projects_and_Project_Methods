@@ -71,16 +71,13 @@ int main(void)
   MX_USART2_UART_Init();
 
 
-
   /* Infinite loop */
   while (1)
   {
 			HAL_ADC_Start_IT(&hadc);
-		  HAL_Delay(1000);
+		  HAL_Delay(2000);
 			updateDatabase(ADC_raw, &huart2);
-	
 	}
- 
 }
 
 

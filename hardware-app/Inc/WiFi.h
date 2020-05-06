@@ -24,6 +24,7 @@ HAL_StatusTypeDef setMux(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef initateConnection(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart);
+void updateMacAddress(UART_HandleTypeDef *huart);
 
 HAL_StatusTypeDef initiateLightTransmission(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef initiateMoistureTransmission(unsigned int data, UART_HandleTypeDef *huart);
