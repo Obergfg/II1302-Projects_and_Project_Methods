@@ -165,12 +165,12 @@ int main(void)
 	
 	//firebastTest();
 	
-	//setupWifi();
+	setupWifi();
 	//updateCIPSEND();
 	//testSendBuffer();
 	
 	
-	
+	/*
 	if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000) == HAL_OK){
 		HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
 	}
@@ -193,7 +193,7 @@ int main(void)
 			break;
 		}
 	}
-	
+	*/
 	
 	/*
 	if(HAL_UART_Transmit(&huart2, wifiCommand, sizeof(wifiCommand), 1000) == HAL_OK){
