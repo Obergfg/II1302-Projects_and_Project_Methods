@@ -24,9 +24,8 @@ uint8_t receiveBuffer[512];
     * @return is the status of the connection between STM32 and ESP8266.
     */
 HAL_StatusTypeDef transmit(uint8_t* command, int size, UART_HandleTypeDef *huart){
-
 	if(HAL_UART_Transmit(huart, command, size, 1000) == HAL_OK)
-			return	HAL_UART_Receive(huart, receiveBuffer, sizeof(receiveBuffer), 1000);
+			return HAL_UART_Receive(huart, receiveBuffer, sizeof(receiveBuffer), 1000);
 	else
 			return HAL_ERROR;
 		
@@ -43,6 +42,34 @@ HAL_StatusTypeDef transmit(uint8_t* command, int size, UART_HandleTypeDef *huart
 HAL_StatusTypeDef resetWiFi(UART_HandleTypeDef *huart){
 
 	uint8_t reset[] = "AT+RST\r\n";
+
+	return transmit(reset, sizeof(reset), huart);
+}
+
+/*
+    * Restores the ESP8266 module.
+    *.
+		* @huart handles Structure definition
+    *
+    * @return is the status of the connection between STM32 and ESP8266.
+    */
+HAL_StatusTypeDef restoreWiFi(UART_HandleTypeDef *huart){
+
+	uint8_t restore[] = "AT+RESTORE\r\n";
+
+	return transmit(restore, sizeof(restore), huart);
+}
+
+/*
+    * Connect to WiFi specified in private.c
+    *.
+		* @huart handles Structure definition
+    *
+    * @return is the status of the connection between STM32 and ESP8266.
+    */
+HAL_StatusTypeDef connectToRouter(UART_HandleTypeDef *huart){
+
+	uint8_t reset[] = ATCWJAP;
 
 	return transmit(reset, sizeof(reset), huart);
 }
@@ -264,5 +291,19 @@ HAL_StatusTypeDef initiateMoistureTransmission(unsigned int moistureData, UART_H
 		sendMoistureData(moistureData, huart);
 
 		return closeConnection(huart);
+}
+
+/*
+Runs functions in the WiFi.c file to connect to wifi.
+
+return 0 if false, 1 if true.
+*/
+HAL_StatusTypeDef connectToWifi(UART_HandleTypeDef *huart){
+	resetWiFi(huart);
+	setCWMode(huart);
+	connectToRouter(huart);
+	//HAL_UART_Receive(huart, receiveBuffer, sizeof(receiveBuffer), 1000);
+	
+	return closeConnection(huart);
 }
 

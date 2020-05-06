@@ -19,15 +19,21 @@ Start function of the controller "class", runs initialization commands like chec
 
 @huart handles Structure definition
 */
+uint8_t ATConnectWifiResponse[500];
 void startController(UART_HandleTypeDef *huart){
 	setDraughtThreshhold(DROUGHTTHRESHHOLD);
 	
-	if(checkWifiConnection() == 0){
-		if(connectToWifi() == 0){
+	//if(checkWifiConnection() == 0){
+		//if(connectToWifi(huart) == HAL_OK){
+			uint8_t ATLocalIP[] = "AT+CIFSR\r\n";
+			if(HAL_UART_Transmit(huart, ATLocalIP, sizeof(ATLocalIP), 1000) == HAL_OK){
+				HAL_UART_Receive(huart, ATConnectWifiResponse, sizeof(ATConnectWifiResponse), 1000);
+			}
 			//Something is wrong, cannot continue...
-		}
-	}
-	loop(huart);
+			//loop(huart);
+		//}
+	//}
+	//loop(huart);
 }
 
 /*
@@ -57,15 +63,6 @@ the ESP8266(wifi) module has a working wifi connection or not
 return 0 if false, 1 if true.
 */
 int checkWifiConnection(){
-	return 1;
-}
-
-/*
-Runs functions in the WiFi.c file to connect to wifi.
-
-return 0 if false, 1 if true.
-*/
-int connectToWifi(){
 	return 1;
 }
 
