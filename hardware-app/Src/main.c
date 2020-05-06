@@ -1,11 +1,6 @@
 /**
-<<<<<<< HEAD
  *Authors: Fredrik ï¿½berg and Max Ryblad
  *Co-Authors: -
-=======
- *Authors: Fredrik Öberg and Max Ryblad
- *Co-Authors: 
->>>>>>> 9a4fd2f32c6ada460bd8d9e1db3c01875dd4c5b0
  *Date of generation: 200429
  *Date of  update: 20-04-30
  *Code Properties: The code initiates the program.
@@ -53,7 +48,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 }
 
 /*
-<<<<<<< HEAD
     * Is the main function of the program and is called upon when the program
     * is initiated. The HAL_ADC_Start_IT function call in the infinite loop 
     * initiates the sensor data retrieval through the HAL_ADC_ConvCpltCallback function.
@@ -61,13 +55,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
 		* @return is 0 if the program has executed properly.
     *
     */
-=======
-	* Is the main function of the program and is called upon when the program is initiated.
-	*
-	* @return is 0 if the program has executed properly.
-	*
-*/
->>>>>>> 9a4fd2f32c6ada460bd8d9e1db3c01875dd4c5b0
 int main(void)
 {
 
@@ -82,7 +69,6 @@ int main(void)
   MX_ADC_Init();
   MX_USART2_UART_Init();
 
-<<<<<<< HEAD
 
   /* Infinite loop */
   while (1)
@@ -90,20 +76,6 @@ int main(void)
 			HAL_ADC_Start_IT(&hadc);
 		  HAL_Delay(1000);
 			updateDatabase(ADC_raw, &huart2);
-=======
-  setSSLbuffer(&huart2);
-	
-  /* Infinite loop */
-  while (1)
-  {
-		HAL_ADC_Start_IT(&hadc); //Read current sensor values
-		HAL_Delay(1000);
-		
-		//initiateLightTransmission(ADC_raw[1], &huart2);
-		
-		int moisturePercentage = 100-ADC_raw[0]/40.95;
-		initiateMoistureTransmission(moisturePercentage, &huart2);
->>>>>>> 9a4fd2f32c6ada460bd8d9e1db3c01875dd4c5b0
   }
 	
  
