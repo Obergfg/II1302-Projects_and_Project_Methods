@@ -8,7 +8,6 @@
 
 
 #include "main.h"
-//#include "Constants.c"
 #include "Controller.h"
 
 #include<string.h>
@@ -59,8 +58,7 @@ unsigned int *updateSensorValues(){
 /*
 
     * Is the main function of the program and is called upon when the program
-    * is initiated. The HAL_ADC_Start_IT function call in the infinite loop 
-    * initiates the sensor data retrieval through the HAL_ADC_ConvCpltCallback function.
+    * is initiated. 
     *
 		* @return is 0 if the program has executed properly.
     *
@@ -79,32 +77,12 @@ int main(void)
   MX_ADC_Init();
   MX_USART2_UART_Init();
 
-<<<<<<< HEAD
 
-=======
 	updateSensorValues();
 	startController(&huart2);
-	
->>>>>>> 06ee1d352f2b0fe6b3ae744d84bd879019996b9c
-  /* Infinite loop */
-	/*
-  while (1)
-  {
-<<<<<<< HEAD
-			HAL_ADC_Start_IT(&hadc);
-		  HAL_Delay(2000);
-			updateDatabase(ADC_raw, &huart2);
-	}
-=======
-		updateSensorValues();
-		HAL_Delay(1000);
-		updateDatabase(ADC_raw, &huart2);
-	}
-	*/
- 
->>>>>>> 06ee1d352f2b0fe6b3ae744d84bd879019996b9c
-}
 
+	
+}
 
 /**
   * @brief System Clock Configuration

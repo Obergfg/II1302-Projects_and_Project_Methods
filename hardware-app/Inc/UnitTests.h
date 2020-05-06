@@ -11,6 +11,7 @@
 #define UNITTESTS_H
 
     void InitiateUnitTests(void);
+	void moistureGetSuite(void);
 
     int main(void);
 
