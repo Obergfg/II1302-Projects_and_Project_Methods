@@ -3,8 +3,8 @@
  *Author: Fredrik Öberg
  *Co-Authors: Max Ryblad
  *Date of generation: 200429
- *Date of  update: 20-04-30
- *Code Properties: The code serves as a header file for the WiFi.c file and contains 
+ *Date of  update: 20-05-04
+ *Code Properties: The code serves as a header file for the WiFi.c file and contains
  *                 declarations of functions and variables.
 */
 
@@ -23,6 +23,7 @@ HAL_StatusTypeDef getIP(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef setMux(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef initateConnection(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart);
+HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart);
 void updateMacAddress(UART_HandleTypeDef *huart);
 

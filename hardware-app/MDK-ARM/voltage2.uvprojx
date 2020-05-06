@@ -427,6 +427,21 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Wifi\private.c</FilePath>
             </File>
+            <File>
+              <FileName>Moisture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Sensors\Moisture.c</FilePath>
+            </File>
+            <File>
+              <FileName>constants.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\constants.c</FilePath>
+            </File>
+            <File>
+              <FileName>DisplayLight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Util\DisplayLight.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

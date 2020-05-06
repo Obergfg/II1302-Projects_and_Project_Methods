@@ -17,6 +17,7 @@
   #include "UnitTests.h"
   #include "CuTest.h"
   #include "LightSensorTest.h"
+  #include "MoistureTest.h"
 
     
     /*
@@ -27,6 +28,7 @@
         CuSuite* testSuite = CuSuiteNew();
         
         CuSuiteAddSuite(testSuite, lightSensorGetSuite());
+         CuSuiteAddSuite(testSuite, moistureGetSuite());
     
         CuSuiteRun(testSuite);
         CuSuiteSummary(testSuite, output);
