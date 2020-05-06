@@ -44,7 +44,7 @@ int setupWifi(){
 						//HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
 						//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
 						HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-						HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
+						//HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
 						return 1; //success
 					} //Temp comment
 				}

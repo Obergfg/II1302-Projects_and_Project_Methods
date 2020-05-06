@@ -166,17 +166,14 @@ int main(void)
 	
 	setupWifi();
 	//updateCIPSEND();
-	testSendBuffer();
+	//testSendBuffer();
 	
-<<<<<<< HEAD
-=======
 	
->>>>>>> parent of 468a9ae... Added test code to get MAC address.
-	/*
 	if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000) == HAL_OK){
 		HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
 	}
-<<<<<<< HEAD
+	/*
+	
 	int save = 0;
 	int startCounter = -1;
 	int indexCounter = 0;
@@ -196,8 +193,6 @@ int main(void)
 			break;
 		}
 	}
-=======
->>>>>>> parent of 468a9ae... Added test code to get MAC address.
 	*/
 	
 	/*

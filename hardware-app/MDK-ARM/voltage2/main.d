@@ -31,3 +31,10 @@ voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h
 voltage2\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
+voltage2\main.o: ../Src/private.c
+voltage2\main.o: ../Src/Util/GeneralSensorFunctions.c
+voltage2\main.o: ../Src/Util/MXFunctions.c
+voltage2\main.o: ../Src/WiFi/WiFi.c
+voltage2\main.o: ../Src/WiFi/Curl.c
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+voltage2\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
