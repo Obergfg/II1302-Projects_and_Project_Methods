@@ -23,7 +23,7 @@ void initialize(){
 
 uint8_t helloWorld[13] = "Hello World\r\n";
 
-uint8_t wifiTesting[750];
+uint8_t wifiTesting[500];
 //uint8_t wifiCommand[] = "AT+CIPSTART=\"TCP\",\"farmtesting-cbe6a.firebaseio.com\",\"80\"\r\n";
 //uint8_t wifiCommand[] = "AT+CIPSTART=\"TCP\",\"92.35.98.102\",\"25565\"\r\n";
 //uint8_t wifiCommand[] = "AT+CIPMUX=0\r\n";
@@ -164,15 +164,35 @@ int main(void)
 	
 	//firebastTest();
 	
-	setupWifi();
+	//setupWifi();
 	//updateCIPSEND();
 	//testSendBuffer();
 	
 	
-	if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000) == HAL_OK){
-		HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
-	}
+	//if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CWMODE=1\r\n", 13, 1000) == HAL_OK){
+		//if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CWLAP\r\n", 10, 1000) == HAL_OK){
+			//if(HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000) == HAL_OK){
+				//if(HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000) == HAL_OK){
+					//HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
+				//}
+			//}
+		//}
+	//}
+	
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	HAL_UART_Transmit(&huart2, ATReset, sizeof(ATReset), 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CWMODE=1\r\n", 13, 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000);
+	HAL_Delay(1000);
+	HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CIFSR\r\n", 10, 1000);
+	HAL_UART_Receive(&huart2, wifiTesting, sizeof(wifiTesting), 1000);
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	
+
 	/*
+	
 	
 	int save = 0;
 	int startCounter = -1;

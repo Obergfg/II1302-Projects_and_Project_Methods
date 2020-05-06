@@ -16,6 +16,7 @@
 "AT+CIFSR" Shows IP and MAC of component
 */
 uint8_t ATReset[] = "AT+RESTORE\r\n";
+uint8_t ATDisconnect[] = "AT+CWQAP\r\n";
 uint8_t ATConnectionSetting[] = "AT+CWMODE=1\r\n";
 uint8_t ATConnectWifi[] = ATCWJAP; //wifi username and password, stored in private.c
 uint8_t ATLocalIP[] = "AT+CIFSR\r\n";
@@ -35,20 +36,24 @@ uint8_t errorMessage[750];
 int setupWifi(){
 	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin); //Turn on green pin
 	if(HAL_UART_Transmit(&huart2, ATReset, sizeof(ATReset), 1000) == HAL_OK){
+		//if(HAL_UART_Transmit(&huart2, ATDisconnect, sizeof(ATDisconnect), 1000) == HAL_OK){
 		//HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
-		if(HAL_UART_Transmit(&huart2, ATConnectionSetting, sizeof(ATConnectionSetting), 1000) == HAL_OK){
-			if(HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000) == HAL_OK){
-				//HAL_UART_Receive(&huart2, ATConnectWifiResponse, sizeof(ATConnectWifiResponse), 1000);
-				if(HAL_UART_Transmit(&huart2, ATLocalIP, sizeof(ATLocalIP), 1000) == HAL_OK){
-					if(HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000) == HAL_OK){
-						//HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
-						//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
-						HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-						//HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
-						return 1; //success
-					} //Temp comment
+			HAL_Delay(500);
+			if(HAL_UART_Transmit(&huart2, ATConnectionSetting, sizeof(ATConnectionSetting), 1000) == HAL_OK){
+				HAL_Delay(500);
+				if(HAL_UART_Transmit(&huart2, ATConnectWifi, sizeof(ATConnectWifi), 1000) == HAL_OK){
+					HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
+					//if(HAL_UART_Transmit(&huart2, ATLocalIP, sizeof(ATLocalIP), 1000) == HAL_OK){
+						//if(HAL_UART_Transmit(&huart2, ATPingGoogle, sizeof(ATPingGoogle), 1000) == HAL_OK){
+							//HAL_UART_Receive(&huart2, ATPingGoogleResponse, sizeof(ATPingGoogleResponse), 1000);
+							//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD4_Pin); //Turn on blue pin
+							HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+							//HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
+							return 1; //success
+						//} //Temp comment
+					//}
 				}
-			}
+			//}
 		}
 	}
 	//HAL_UART_Receive(&huart2, errorMessage, sizeof(errorMessage), 1000);
