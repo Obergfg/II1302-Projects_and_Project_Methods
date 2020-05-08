@@ -14,8 +14,7 @@
 
 void startController(UART_HandleTypeDef *huart);
 void loop(UART_HandleTypeDef *huart);
-int checkWifiConnection(void);
-int connectToWifi(void);
+void setupWifi(UART_HandleTypeDef *huart);
 void plantTooDryCheck(int);
 void updateLED(int);
 void updateDatabase(int light, int water, UART_HandleTypeDef *huart);

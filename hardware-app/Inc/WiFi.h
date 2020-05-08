@@ -15,7 +15,9 @@
 
 
 HAL_StatusTypeDef transmit(uint8_t* command ,int size, UART_HandleTypeDef *huart);
-HAL_StatusTypeDef resetWiFi(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef restartWiFi(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef restoreWiFi(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef connectToRouter(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef setSSLbuffer(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef getAP(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef setCWMode(UART_HandleTypeDef *huart);
@@ -29,4 +31,6 @@ void updateMacAddress(UART_HandleTypeDef *huart);
 
 HAL_StatusTypeDef initiateLightTransmission(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef initiateMoistureTransmission(unsigned int data, UART_HandleTypeDef *huart);
+
+HAL_StatusTypeDef connectToWifi(UART_HandleTypeDef *huart);
 #endif

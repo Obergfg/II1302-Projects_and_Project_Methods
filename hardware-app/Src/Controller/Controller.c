@@ -23,11 +23,8 @@ Start function of the controller "class", runs initialization commands like chec
 void startController(UART_HandleTypeDef *huart){
 	setDraughtThreshhold(DROUGHTTHRESHHOLD);
 	
-	if(checkWifiConnection() == 0){
-		if(connectToWifi() == 0){
-			//Something is wrong, cannot continue...
-		}
-	}
+	setupWifi(huart);
+	
 	loop(huart);
 }
 
@@ -52,25 +49,6 @@ void loop(UART_HandleTypeDef *huart){
 }
 
 /*
-Runs functions in the WiFi.c file to check whether or not 
-the ESP8266(wifi) module has a working wifi connection or not
-
-return 0 if false, 1 if true.
-*/
-int checkWifiConnection(){
-	return 1;
-}
-
-/*
-Runs functions in the WiFi.c file to connect to wifi.
-
-return 0 if false, 1 if true.
-*/
-int connectToWifi(){
-	return 1;
-}
-
-/*
 Gets drought threshhold values from Moisture.c and compares it the waterPercent.
 Turns on or off LED lamps on ST if it is too dry or not.
 
@@ -85,7 +63,16 @@ void plantTooDryCheck(int waterPercent){
 	}
 }
 
+/*
+Calls connectToWifi function in WiFi.c as well as indicates wifi loading by turning on green LED
 
+@huart handles Structure definition
+*/
+void setupWifi(UART_HandleTypeDef *huart){
+	setGreenLED(1);
+	connectToWifi(huart);
+	setGreenLED(0);
+}
 
 /*
 * Pushes the sensors processed data to the database

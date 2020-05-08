@@ -28,11 +28,7 @@
         CuSuite* testSuite = CuSuiteNew();
         
         CuSuiteAddSuite(testSuite, lightSensorGetSuite());
-<<<<<<< HEAD
          CuSuiteAddSuite(testSuite, moistureGetSuite());
-=======
-		CuSuiteAddSuite(testSuite, moistureGetSuite());
->>>>>>> b4a0ff759753b5a1d557eaae232415ab927671fe
     
         CuSuiteRun(testSuite);
         CuSuiteSummary(testSuite, output);
