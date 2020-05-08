@@ -14,6 +14,7 @@
 #include "DisplayLight.h"
 
 
+
 /*
 Start function of the controller "class", runs initialization commands like checking the wifi.
 
