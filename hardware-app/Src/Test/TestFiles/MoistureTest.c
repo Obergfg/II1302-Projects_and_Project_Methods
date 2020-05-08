@@ -84,17 +84,21 @@ void testSetMoistureThreshholdC(CuTest *tc){
   CuAssertIntEquals(tc, expected, actual);
 }
 void testSetMoistureThreshholdD(CuTest *tc){
-  int input = -10;
-  setMoistureThreshhold(input);
+  int input1 = 62;
+  setMoistureThreshhold(input1);
+  int input2 = -10;
+  setMoistureThreshhold(input2);
   int actual = getMoistureThreshhold();
-  int expected = 0;
+  int expected = 62;
   CuAssertIntEquals(tc, expected, actual);
 }
 void testSetMoistureThreshholdE(CuTest *tc){
-  int input = 200;
-  setMoistureThreshhold(input);
+  int input1 = 20;
+  setMoistureThreshhold(input1);
+  int input2 = 2660;
+  setMoistureThreshhold(input2);
   int actual = getMoistureThreshhold();
-  int expected = 100;
+  int expected = 20;
   CuAssertIntEquals(tc, expected, actual);
 }
 /*
@@ -125,17 +129,21 @@ void setDraughtThreshholdC(CuTest *tc){
   CuAssertIntEquals(tc, expected, actual);
 }
 void setDraughtThreshholdD(CuTest *tc){
-  int input = -100;
-  setMoistureThreshhold(input);
+  int input1 = 12;
+  setMoistureThreshhold(input1);
+  int input2 = -100;
+  setMoistureThreshhold(input2);
   int actual = getMoistureThreshhold();
-  int expected = 0;
+  int expected = 12;
   CuAssertIntEquals(tc, expected, actual);
 }
 void setDraughtThreshholdE(CuTest *tc){
-  int input = 200;
-  setMoistureThreshhold(input);
+  int input1 = 53;
+  setMoistureThreshhold(input1);
+  int input2 = 200;
+  setMoistureThreshhold(input2);
   int actual = getMoistureThreshhold();
-  int expected = 100;
+  int expected = 53;
   CuAssertIntEquals(tc, expected, actual);
 }
 
