@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    Email.send({
+      SecureToken : "c648ceb0-b9a2-426f-bf92-74f4ab62af83",
+      To : "receiveraddress",
+      From : "TheFarmNotification@gmail.com",
+      Subject : "Notification Test",
+      Body : "This is the body \n of the test!"
+    }).then();
+  </script>
+</html>
+
+<!-- MVP grabb: https://www.youtube.com/watch?v=d_0LIOF_aoQ -->
