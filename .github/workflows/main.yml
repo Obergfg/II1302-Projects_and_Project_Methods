@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      working-directory: ./web-app
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -19,7 +21,6 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Test
-      working-directory: web-app
       run: npm run test
 
  
