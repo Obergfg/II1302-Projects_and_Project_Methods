@@ -24,7 +24,7 @@ describe('testing button.js', () => {
         const button = wrapper.find('button');
         button.simulate('click');
         const text = wrapper.find('div div');
-        expect(text.length).toBe(0);
+        expect(text.length).toBe(1);
     });
   
   
