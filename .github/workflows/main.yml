@@ -22,10 +22,17 @@ jobs:
       with:
         node-version: '12.x'
 
-    # Runs a single command using the runners shell
+   
+    - name: Install
+      run: npm install
+      working-directory: ${{env.working-directory}}
+
+    - name: Build
+      run: npm run build
+      working-directory: ${{env.working-directory}}
+
     - name: Test
-    - run: npm install
-    - run: npm run build
-    - run: npm run test
+      run: npm run test
+      working-directory: ${{env.working-directory}}
 
  
