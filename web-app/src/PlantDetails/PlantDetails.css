@@ -1,0 +1,36 @@
+.PlantDetailsContainer {
+	text-align: center;
+	padding-top: calc(100px + 2%);
+}
+
+.Table1 {
+	position: absolute;
+	top: 150px;
+	left: 137px;
+}
+    
+.Column1 td {
+	display: inline-block;
+	border: 1px solid black;
+	background: #556b2f;
+	width: 240px;
+	height: 90px;
+	font-size: 24px;
+	text-align: center;
+
+	color: white;
+
+	
+}
+  
+.Row1 td {
+	display: inline-block;
+	background: lightgrey;
+	border: 1px solid black;
+	vertical-align: center;
+	font-size: 22px;
+	text-align: center;
+	width: 240px;
+	height: 60px;
+}
+

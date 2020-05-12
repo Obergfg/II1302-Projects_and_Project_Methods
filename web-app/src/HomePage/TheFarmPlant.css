@@ -1,0 +1,131 @@
+/*
+  Author: Sebastian
+  Co-Authors:
+*/
+.HomePageContainer{
+ height: calc(100vh + 200px);
+ padding-top: calc(100px + 2%);
+}
+.TheFarmPlant{
+  width: 90%;
+  padding-left: 10%;
+  
+}
+.TheFarmPlant-Info{
+    border: 2px solid green;
+    padding: 10px;
+    border-top-right-radius: 50px 20px;
+    border-top-left-radius: 50px 20px;
+    border-bottom: none;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+#TheFarmPlant-button{
+    background-color: green;
+    
+}
+.TheFarmPlant-name{
+   
+}
+.TheFarmPlant-nameInput{
+    float: left;
+}
+.Watering{
+    padding-top: 5%;
+    float:left;
+    height: 80vh;
+    width: 39vw;
+    background-image: url('../Images/dryPlant.jpg');
+    background-position: center bottom;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}
+.Humidity-control-normal, .Humidity-control-high, .Humidity-control-low{
+    padding-top: 5%;
+    float:right;
+    height: 80vh;
+    background-color: black;
+    width: 39vw;
+
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.Humidity-control-normal{
+
+
+
+    background-image: url('../Images/roses.jpg');
+    
+
+
+}
+.Humidity-control-low{
+ 
+
+
+    background-image: url('../Images/desert.jpg');
+
+}
+.Humidity-control-high{
+
+
+
+    background-image: url('../Images/rainForest.jpg');
+    
+
+}
+
+.Humidity-control-default{
+    
+    height: 100vh;
+}
+.Humidity-background{
+    background-color: rgb(253, 255, 253);
+    opacity: 0.5;
+    height: 280px;
+}
+.Humidity-background:hover{
+    
+    opacity: 1;
+    
+}
+
+
+.Water-text{
+    background-color: rgb(253, 255, 253);
+    opacity: 0.5;
+    height: 280px;
+}
+
+.Water-text:hover{
+    background-color: rgb(253, 255, 253);
+    opacity: 1;
+}
+
+@media screen and (max-width: 1650px){
+    .Watering{
+        width: 100%;
+        float:center;
+        padding-left: 0%;
+    }
+    
+    .Humidity-control-normal, .Humidity-control-high, .Humidity-control-low{
+        
+        float:center;
+        padding-right: 0%;
+        width: 100%;
+    }
+    .HomePageContainer{
+        height: 200vh;
+    }
+
+
+
+}
+

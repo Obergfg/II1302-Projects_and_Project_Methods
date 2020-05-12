@@ -1,0 +1,23 @@
+/*
+  Author: Sebastian
+  Co-Authors:
+*/
+.StartPageContainer {
+	padding-top: calc(1em + 100px);
+	text-align:center;
+	font-size: 32px;
+}
+.testd {
+	text-align:center;
+}
+.switchForm {
+	border: none;
+	background: none;
+	font-size: 32;
+	color: red;
+}
+	.switchForm:hover{
+		opacity:0.6;
+		cursor:pointer;
+		
+	}
