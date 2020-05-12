@@ -4,7 +4,7 @@
 */
 import * as firebase from 'firebase';
 import Observable from './Observable';
-import CONFIG from '../Database/configFirebase';
+import CONFIG from '../Database/ConfigFirebase';
 import UserDB from '../Database/UserDB';
 
 /**

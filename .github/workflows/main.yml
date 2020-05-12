@@ -24,6 +24,8 @@ jobs:
 
     - name: Build
       run: npm run build
+      env:
+        CI: ""
       working-directory: ${{env.working-directory}}
 
     - name: Test
