@@ -41,7 +41,7 @@ class WeatherDetails extends Component {
 		let i;
 		for(i = 0; i < 40; i = i + 8) {
 			string = (data.list[i].dt_txt).split(" ");
-			if(string[0] == date) {
+			if(string[0] === date) {
 				console.log(string[1])
 				break;
 			}
