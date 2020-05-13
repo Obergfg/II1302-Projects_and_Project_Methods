@@ -1,6 +1,4 @@
 # TheFarm
-A plant monitoring system 
+A plant monitoring system which consists of a hardware application running on a STM32F0 Discovery board as well as a web based React application. 
 
-To launch website execute the following commands in the react folder's directory:  
-npm install  
-npm start  
+
