@@ -10,6 +10,7 @@ class Chart extends Component{
     displayTitle:true,
     displayLegend: true,
     legendPosition:'right',
+    maintainAspectRatio: 'true',
     
   }
  
@@ -24,6 +25,14 @@ class Chart extends Component{
               display:this.props.displayTitle,
               text:this.props.title,
               fontSize:30
+            },
+            layout: {
+              padding: {
+                left: 50,
+                right:50,
+                top: 0,
+                bottom: 0
+              }
             },
             legend:{
               display:this.props.displayLegend,

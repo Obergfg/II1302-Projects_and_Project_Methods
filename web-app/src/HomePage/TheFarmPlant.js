@@ -35,20 +35,20 @@ class TheFarmPlant extends Component{
      */
     componentDidMount(){
         this._isMounted = true;
-        
+
         userDB.getWantedHumidity(this.props.userID);
         userDB.getHardwareIDFromDB(this.props.userID);
         this.setHumidityBackground();
         this.estimateWhenToWater();
         userDB.getActualHumidityFromDB();
-        userDB.getTheFarmPlantInfo(this.props.userID); 
+        userDB.getTheFarmPlantInfo(this.props.userID);
         this.setState({
             plantDescription: userDB.getPlantDesc(),
             plantName: userDB.getPlantName(),
             hardwareID: userDB.getHardWareID(),
             hardwareHumidity: userDB.getActualHum(),
         })
-        
+
     }
 
     //set mounted as false
@@ -67,22 +67,22 @@ class TheFarmPlant extends Component{
 
         if(this.state.humidity === 'loading...' && this._isMounted){
             userDB.getWantedHumidity(this.props.userID);
-            
+
             setTimeout(() => {
                 this.setState({
                     humidity: userDB.getHum(),
-                })      
+                })
             }, 1000);
         }
-        
+
         if(this._isMounted){
             this.intervalID = setTimeout(() => {
                 this.setHumidityBackground();
                 this.estimateWhenToWater();
                 userDB.getActualHumidityFromDB();
-                userDB.getTheFarmPlantInfo(this.props.userID); 
+                userDB.getTheFarmPlantInfo(this.props.userID);
 
-               
+
 
                 this.setState({
                     plantDescription: userDB.getPlantDesc(),
@@ -101,7 +101,7 @@ class TheFarmPlant extends Component{
         let status = 'default'
         if(this.state.humidity !== 'loading...'){
             status = 'low';
-        
+
             if(this.state.humidity > 66 ){
                 status = 'high';
 
@@ -112,28 +112,30 @@ class TheFarmPlant extends Component{
         this.setState({
             humidityBackground: 'Humidity-control-' + status,
         })
-  
+
     }
 
     /**
      * Estimates if your plant needs water and if hardware is linked to the user.
      */
     estimateWhenToWater(){
-        if(this.state.hardwareID > 0 && this.state.hardwareHumidity > 0){
-            let msg = null;
-            if(parseInt((this.state.humidity) - parseInt(this.state.hardwareHumidity)) > 10){
+        let msg = null;
+        if(this.state.hardwareID !== "-" && this.state.hardwareHumidity > 0){
+            if(parseInt((this.state.humidity) - parseInt(this.state.hardwareHumidity)) > 0){
                 msg = "Your plant needs water!"
             }else{
                 msg = "Your plant has plenty of water"
             }
-            this.setState({
-                watering: msg
-            });
         }else{
-            this.setState({
-                watering: "Connect your hardware to your account"
-            });
+          msg = "Connect your hardware to your account";
         }
+        this.setWateringMessage(msg);
+    }
+
+    setWateringMessage(msg){
+      this.setState({
+          watering: msg
+      });
     }
 
     /**
@@ -151,10 +153,10 @@ class TheFarmPlant extends Component{
             humidity: newHum,
         })
     }
-    
+
     /**
      * Change humidity level
-     * 
+     *
      * @param {Integer} value either 1 or -1 depending on which button was pressed
      */
     changeHumidity(value){
@@ -180,12 +182,12 @@ class TheFarmPlant extends Component{
      * Enables editing of plant name and description
      */
     editTheFarmInfo(){
-        if(this.state.theFarmButton === "Edit"){
+        if(this.state.theFarmButton === "Edit"){ //start editing
             this.setState({
                 editable: true,
                 theFarmButton: "Save",
             })
-        }else{
+        }else{ //saves edits
             if(!document.getElementById('plantName').innerHTML.replace(/\s/g, "").length | !document.getElementById('theFarmPLantText').innerHTML.replace(/\s/g, "").length){
                 console.log(document.getElementById('plantName').innerHTML);
                 alert("Name and Description can not be empty");
@@ -206,7 +208,7 @@ class TheFarmPlant extends Component{
                 this.setState({
                     editable: false,
                     theFarmButton: "Edit",
-                }) 
+                })
                 userDB.setHardwareID(this.props.userID, document.getElementById('hwID').innerText)
                 userDB.setTheFarmPlantInfo(this.props.userID, document.getElementById('plantName').innerText, document.getElementById('theFarmPLantText').innerText);
             }
@@ -215,9 +217,9 @@ class TheFarmPlant extends Component{
 
 
     render(){
-        
+
         return(
-            <div className='TheFarmPlant'> 
+            <div className='TheFarmPlant'>
                 <div className='TheFarmPlant-Info'>
                     <button onClick={() => {this.editTheFarmInfo()}} id="TheFarmPlant-button">{this.state.theFarmButton}</button>
                     <div>Hardware ID: <span suppressContentEditableWarning={true} id="hwID" contentEditable={this.state.editable}>{this.state.hardwareID}</span></div>
@@ -233,7 +235,7 @@ class TheFarmPlant extends Component{
                 </div>
                 <div className={this.state.humidityBackground} id='HumidityID'>
                     <div className='Humidity-background'>
-                        <h1 className='Humidity-header'>Change Humidity</h1>
+                        <h1 className='Humidity-header'>Wanted watering level</h1>
                         <input type='button' value='-' onClick={() => this.changeHumidity(-1)}></input>
                         <input className='Humidity-input' type='text' value={this.state.humidity} onChange={(evt) => this.manuallyChangeHumidity(evt)}></input>
                         <input type='button' value='+' onClick={() => this.changeHumidity(1)}></input>

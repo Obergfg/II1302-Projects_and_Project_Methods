@@ -1,56 +1,94 @@
+/*
+  Author: Homam Jabir
+  Co-Authors:
+*/
 .WeatherOverviewContainer {
-	text-align: center;
+	height: 100vh;
 	padding-top: calc(100px + 2%);
+	text-align: center;
+	
 }
 
 .Rectangle {
-	
-	width: 1715px;
-	height: 620px;
-	left: 103px;
-	top: 190px;
+	margin: 0 auto; 
+	width: 90vw;
+	height: 70vh;
+	top: 250px;
+	font-size: 2vw;
 
 	background: #F5F5F5;
 	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 8px;	
 }
 
+
 .Table {
 	
-	top: 150px;
-	left: 137px;
+	padding-left: 8.5vw;
+	font-size: 1vw;
+ 
 }
     
 .Column td {
-	display: inline-block;
-	border: 1px solid black;
 	background: #556b2f;
-	width: 240px;
-	height: 90px;
-
+	width: 12vw;
+	height: 9vh;
 	color: white;
-
-	
+	font-size: 1.5vw;
 }
   
 .Row td {
-	display: inline-block;
 	background: lightgrey;
-	border: 1px solid black;
 	vertical-align: center;
-	width: 240px;
-	height: 60px;
+	width: 12vw;
+	height: 6vh;
+	font-size: 1.5vw;
 }
 
-#WeatherImages {
+.Search {
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+#WeatherImages11 {
     display: block;
     margin-left: auto;
 	margin-right: auto;
-	margin-top: -20px;
+	margin-top: center;
 	text-align: center;
 }
 
 #link {
 	color: white;
+}
+
+@media screen and (max-width: 800px){
+    .BestTable tr > *{
+		display: block;
+		border: 1px solid white;
+    }
+    .BestTable tr {
+		display: table-cell;
+	}
+    .WeatherOverviewContainer{
+        height: 110vh;
+	}
+	.Rectangle{
+		font-size: 4vw;
+		height: 120vw;
+	}
+	.Table {
+		padding-top: 10px;
+		padding-left: 9vw;
+	}
+	.Column td, .Row td {
+		width: 18vw;
+		height: 13vw;
+		font-size: 2.5vw;
+	}
+	#WeatherImages11 {
+		height: 100%;
+		
+	}
 }
 

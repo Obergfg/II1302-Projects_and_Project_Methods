@@ -71,11 +71,11 @@ class Header extends PureComponent{
 		let thisPage = null;
 		if(this.state.user){
 			thisPage=(
-				<div>				
+				<div>
 					<nav id='navbar'>
 						<ul>
 							<li><a className={this.isItActive('Home')} href='/Home'>Home</a></li>
-							<li><a className={this.isItActive('PantDetails')} href='/PlantDetails'>PlantDetails</a></li>
+							<li><a className={this.isItActive('PlantDetails')} href='/PlantDetails'>Plant Details</a></li>
 							<li><a className={this.isItActive('WeatherOverview')} href='/WeatherOverview'>Weather</a></li>
 							<li><a  onClick={() => {this.logOutThisUser()}} href='/'>Sign out</a></li>
 						</ul>
@@ -87,7 +87,14 @@ class Header extends PureComponent{
 
 		return (
 			<header className='main-header'>
-				<div className='logo'>The<span>Farm</span></div>
+				<div className='logo' onClick={() => {
+          if(this.state.user) {
+            window.location.href = 'home'
+          }
+          else{
+            window.location.href = window.location.origin
+          }
+        }}>The<span>Farm</span></div>
 				{thisPage}
 			</header>
 		);

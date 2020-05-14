@@ -14,7 +14,7 @@ class HomePage extends PureComponent {
 		this.state = {
 			user: this.props.currentUser.getUser(),
 		};
-		
+
 	}
 
 	//add this as an observer for the user-state
@@ -32,7 +32,7 @@ class HomePage extends PureComponent {
 	update() {
 		this.setState({
 			user: this.props.currentUser.getUser()
-		});		
+		});
 	}
 
 
@@ -43,13 +43,8 @@ class HomePage extends PureComponent {
 			thisPage = (
 				<div className="HomePageContainer">
 					{this.state.user ? <TheFarmPlant userID={this.state.user.uid}/> : null}
-	
-					
-					
 				</div>
-				);
-		} else {
-			thisPage = null;
+			);
 		}
 		return (
 			<div>

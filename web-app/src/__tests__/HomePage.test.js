@@ -1,8 +1,8 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import HomePage from '../Homepage/HomePage';
+import HomePage from '../HomePage/HomePage';
 import Enzyme, { shallow } from 'enzyme';
-import user from '../UserAccount/UserAccount'
+import user from '../UserAccount/UserAccount.js'
 
 Enzyme.configure({adapter: new Adapter()});
 

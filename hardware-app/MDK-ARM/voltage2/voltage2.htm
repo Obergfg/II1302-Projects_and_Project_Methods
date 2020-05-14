@@ -3,9 +3,9 @@
 <title>Static Call Graph - [voltage2\voltage2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image voltage2\voltage2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri May 08 08:29:26 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu May 14 15:28:01 2020
 <BR><P>
-<H3>Maximum Stack Usage =        640 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        656 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 <P>
@@ -844,7 +844,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[7d]"></a>initiateLightTransmission</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, wifi.o(i.initiateLightTransmission))
-<BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = initiateLightTransmission &rArr; sendLightData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = initiateLightTransmission &rArr; sendLightData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setSSLbuffer
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMux
@@ -856,7 +856,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[81]"></a>initiateMoistureTransmission</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, wifi.o(i.initiateMoistureTransmission))
-<BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 600<LI>Call Chain = initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setSSLbuffer
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setMux
@@ -868,7 +868,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[83]"></a>loop</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, controller.o(i.loop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateMoisture
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
@@ -882,7 +882,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[23]"></a>main</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 640<LI>Call Chain = main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 656<LI>Call Chain = main &rArr; startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startController
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -921,8 +921,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setLightData
 </UL>
 
-<P><STRONG><a name="[80]"></a>sendLightData</STRONG> (Thumb, 102 bytes, Stack size 456 bytes, wifi.o(i.sendLightData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 568<LI>Call Chain = sendLightData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[80]"></a>sendLightData</STRONG> (Thumb, 102 bytes, Stack size 464 bytes, wifi.o(i.sendLightData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 576<LI>Call Chain = sendLightData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transmit
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sprintf
@@ -932,8 +932,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initiateLightTransmission
 </UL>
 
-<P><STRONG><a name="[82]"></a>sendMoistureData</STRONG> (Thumb, 102 bytes, Stack size 456 bytes, wifi.o(i.sendMoistureData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 568<LI>Call Chain = sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[82]"></a>sendMoistureData</STRONG> (Thumb, 102 bytes, Stack size 472 bytes, wifi.o(i.sendMoistureData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transmit
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sprintf
@@ -1013,7 +1013,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[89]"></a>startController</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, controller.o(i.startController))
-<BR><BR>[Stack]<UL><LI>Max Depth = 632<LI>Call Chain = startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = startController &rArr; loop &rArr; updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setDraughtThreshhold
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupWifi
@@ -1040,7 +1040,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[88]"></a>updateDatabase</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, controller.o(i.updateDatabase))
-<BR><BR>[Stack]<UL><LI>Max Depth = 600<LI>Call Chain = updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 616<LI>Call Chain = updateDatabase &rArr; initiateMoistureTransmission &rArr; sendMoistureData &rArr; transmit &rArr; HAL_UART_Receive &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initiateMoistureTransmission
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initiateLightTransmission

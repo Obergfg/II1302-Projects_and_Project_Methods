@@ -3,13 +3,13 @@
   Co-Authors:
 */
 .HomePageContainer{
- height: calc(100vh + 200px);
+ height: calc(110vh + 200px);
  padding-top: calc(100px + 2%);
 }
 .TheFarmPlant{
   width: 90%;
   padding-left: 10%;
-  
+
 }
 .TheFarmPlant-Info{
     border: 2px solid green;
@@ -22,10 +22,10 @@
 }
 #TheFarmPlant-button{
     background-color: green;
-    
+
 }
 .TheFarmPlant-name{
-   
+
 }
 .TheFarmPlant-nameInput{
     float: left;
@@ -42,7 +42,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    
+
 }
 .Humidity-control-normal, .Humidity-control-high, .Humidity-control-low{
     padding-top: 5%;
@@ -61,12 +61,12 @@
 
 
     background-image: url('../Images/roses.jpg');
-    
+
 
 
 }
 .Humidity-control-low{
- 
+
 
 
     background-image: url('../Images/desert.jpg');
@@ -77,12 +77,12 @@
 
 
     background-image: url('../Images/rainForest.jpg');
-    
+
 
 }
 
 .Humidity-control-default{
-    
+
     height: 100vh;
 }
 .Humidity-background{
@@ -91,9 +91,9 @@
     height: 280px;
 }
 .Humidity-background:hover{
-    
+
     opacity: 1;
-    
+
 }
 
 
@@ -114,9 +114,9 @@
         float:center;
         padding-left: 0%;
     }
-    
+
     .Humidity-control-normal, .Humidity-control-high, .Humidity-control-low{
-        
+
         float:center;
         padding-right: 0%;
         width: 100%;
@@ -128,4 +128,23 @@
 
 
 }
+@media screen and (max-width: 520px){
+    .HomePageContainer{
+        height: 100vh;
+    }
 
+    .Watering{
+        height: 50vh;
+    }
+
+    .Water-text{
+        height: 10vh; 
+    }
+
+    .Humidity-background{
+        height: 10vh;
+    }
+    #HumidityID{
+        height: 50vh;
+    }
+}

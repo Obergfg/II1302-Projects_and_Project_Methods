@@ -10,6 +10,7 @@ import HomePage from './HomePage/HomePage';
 import WeatherOverview from './WeatherOverview/WeatherOverview';
 import WeatherDetails from './WeatherDetails/WeatherDetails';
 import PlantDetails from './PlantDetails/PlantDetails';
+import AccessDenied from './AccessDenied/AccessDenied';
 import './App.css';
 import user from './UserAccount/UserAccount';
 
@@ -22,7 +23,7 @@ class App extends Component {
 				<header className="App-header">
 					<Header currentUser={user}/>
 				</header>
-				
+
 				<Route
 					exact path="/"
 					render={() => <StartPage currentUser={user}/>}
@@ -33,20 +34,22 @@ class App extends Component {
 				/>
 				<Route
 					exact path="/WeatherOverview"
-					render={() => <WeatherOverview />}
+					render={() => <WeatherOverview currentUser={user} />}
 				/>
 				<Route
 					exact path="/WeatherDetails"
-					render={() => <WeatherDetails />}
+					render={() => <WeatherDetails currentUser={user} />}
 				/>
 				<Route
 					exact path="/PlantDetails"
-					render={() => <PlantDetails currentUser={user}/>}
+					render={() => <PlantDetails currentUser={user} />}
 				/>
-							
-				
+
+				<AccessDenied currentUser={user}/>
+
+
 			</div>
-		
+
 		);
 	}
 }

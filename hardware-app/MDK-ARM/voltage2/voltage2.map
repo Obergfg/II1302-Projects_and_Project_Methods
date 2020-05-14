@@ -1481,7 +1481,7 @@ Image Symbol Table
     .constdata                               0x08002bfc   Section        4  constants.o(.constdata)
     .constdata                               0x08002c00   Section       16  system_stm32f0xx.o(.constdata)
     .constdata                               0x08002c10   Section        8  system_stm32f0xx.o(.constdata)
-    .conststring                             0x08002c18   Section      352  wifi.o(.conststring)
+    .conststring                             0x08002c18   Section      376  wifi.o(.conststring)
     .data                                    0x20000000   Section       12  main.o(.data)
     .data                                    0x2000000c   Section       12  moisture.o(.data)
     .data                                    0x20000018   Section       12  stm32f0xx_hal.o(.data)
@@ -1712,8 +1712,8 @@ Image Symbol Table
     DROUGHTTHRESHHOLD                        0x08002bfc   Data           4  constants.o(.constdata)
     AHBPrescTable                            0x08002c00   Data          16  system_stm32f0xx.o(.constdata)
     APBPrescTable                            0x08002c10   Data           8  system_stm32f0xx.o(.constdata)
-    Region$$Table$$Base                      0x08002d78   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08002d98   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Base                      0x08002d90   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002db0   Number         0  anon$$obj.o(Region$$Table)
     ADC_i                                    0x20000000   Data           4  main.o(.data)
     ADC_raw                                  0x20000004   Data           8  main.o(.data)
     draughtThreshhold                        0x2000000c   Data           4  moisture.o(.data)
@@ -1736,9 +1736,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000bd
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002dc0, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002dd8, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002d98, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002db0, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1877,18 +1877,18 @@ Memory Map of the image
     0x08002bfc   0x08002bfc   0x00000004   Data   RO          519    .constdata          constants.o
     0x08002c00   0x08002c00   0x00000010   Data   RO         2624    .constdata          system_stm32f0xx.o
     0x08002c10   0x08002c10   0x00000008   Data   RO         2625    .constdata          system_stm32f0xx.o
-    0x08002c18   0x08002c18   0x00000160   Data   RO          295    .conststring        wifi.o
-    0x08002d78   0x08002d78   0x00000020   Data   RO         2990    Region$$Table       anon$$obj.o
+    0x08002c18   0x08002c18   0x00000178   Data   RO          295    .conststring        wifi.o
+    0x08002d90   0x08002d90   0x00000020   Data   RO         2990    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002d98, Size: 0x000006e8, Max: 0x00002000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002db0, Size: 0x000006e8, Max: 0x00002000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08002d98   0x0000000c   Data   RW           21    .data               main.o
-    0x2000000c   0x08002da4   0x0000000c   Data   RW          478    .data               moisture.o
-    0x20000018   0x08002db0   0x0000000c   Data   RW          904    .data               stm32f0xx_hal.o
-    0x20000024   0x08002dbc   0x00000004   Data   RW         2626    .data               system_stm32f0xx.o
+    0x20000000   0x08002db0   0x0000000c   Data   RW           21    .data               main.o
+    0x2000000c   0x08002dbc   0x0000000c   Data   RW          478    .data               moisture.o
+    0x20000018   0x08002dc8   0x0000000c   Data   RW          904    .data               stm32f0xx_hal.o
+    0x20000024   0x08002dd4   0x00000004   Data   RW         2626    .data               system_stm32f0xx.o
     0x20000028        -       0x000000c0   Zero   RW           20    .bss                main.o
     0x200000e8        -       0x00000200   Zero   RW          294    .bss                wifi.o
     0x200002e8        -       0x00000400   Zero   RW            1    STACK               startup_stm32f051x8.o
@@ -1917,10 +1917,10 @@ Image component sizes
       1334         40          0          0          0       7332   stm32f0xx_hal_uart.o
         32          6          0          0          0       2422   stm32f0xx_it.o
          2          0         24          4          0       1031   system_stm32f0xx.o
-       756        198        352          0        512       8357   wifi.o
+       756        198        376          0        512       8357   wifi.o
 
     ----------------------------------------------------------------------
-      6470        632        620         40       1728     353737   Object Totals
+      6470        632        644         40       1728     353737   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          0          0          0          0   (incl. Padding)
 
@@ -1986,15 +1986,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11052        786        620         40       1728     352037   Grand Totals
-     11052        786        620         40       1728     352037   ELF Image Totals
-     11052        786        620         40          0          0   ROM Totals
+     11052        786        644         40       1728     352037   Grand Totals
+     11052        786        644         40       1728     352037   ELF Image Totals
+     11052        786        644         40          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                11672 (  11.40kB)
+    Total RO  Size (Code + RO Data)                11696 (  11.42kB)
     Total RW  Size (RW Data + ZI Data)              1768 (   1.73kB)
-    Total ROM Size (Code + RO Data + RW Data)      11712 (  11.44kB)
+    Total ROM Size (Code + RO Data + RW Data)      11736 (  11.46kB)
 
 ==============================================================================
 

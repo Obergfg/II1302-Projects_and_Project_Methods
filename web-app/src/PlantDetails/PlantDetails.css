@@ -3,34 +3,67 @@
 	padding-top: calc(100px + 2%);
 }
 
-.Table1 {
-	position: absolute;
-	top: 150px;
-	left: 137px;
+.Rectangle2 {
+	margin: 0 auto;
+	width: 90vw;
+	height: 40vw;
+	top: 230vh;
+	font-size: 2vw;
+
+	background: #F5F5F5;
+	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
 }
-    
-.Column1 td {
-	display: inline-block;
-	border: 1px solid black;
-	background: #556b2f;
-	width: 240px;
-	height: 90px;
-	font-size: 24px;
-	text-align: center;
 
-	color: white;
-
+.Table2 {
+	padding-left: 9vw;
+	padding-right: 5vw;	
+	font-size: 1vw;
+	
 	
 }
-  
-.Row1 td {
-	display: inline-block;
-	background: lightgrey;
-	border: 1px solid black;
-	vertical-align: center;
-	font-size: 22px;
-	text-align: center;
-	width: 240px;
-	height: 60px;
+
+.Column2 td {
+	background: #556b2f;
+	width: 12vw;
+	height: 8vh;
+	color: white;
+	font-size: 1.2vw;
 }
 
+.Row2 td {
+	background: lightgrey;
+	vertical-align: center;
+	font-size: 1.2vw;
+	width: 12vw;
+	height: 5vh;
+}
+
+@media screen and (max-width: 724px){
+
+    .BestTable1 tr > *{
+		display: block;
+		border: 1px solid white;
+    }
+    .BestTable1 tr {
+		display: table-cell;
+	}
+
+	.Rectangle2{
+		top: 80vh;
+		height: 110vw;
+	}
+	.Table2 {
+		padding-left: 21vw;
+		
+	}
+	.Column2 td, .Row2 td {
+		font-size: 3vw;
+		width: 16vw;
+		height: 15vw;
+	}
+
+}
+.humidChart{
+	width: 20%;
+}

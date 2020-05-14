@@ -87,7 +87,7 @@ void updateDatabase(int light, int water, UART_HandleTypeDef *huart){
 		initiateLightTransmission(light, huart);
 	}
 	if(UPLOADMOISTURE == 1){
-		initiateMoistureTransmission(water, huart);
+	 	initiateMoistureTransmission(water, huart);
 	}
 }
 

@@ -18,14 +18,17 @@
 	float: left;
 	font-weight: 200;
 }
+.logo:hover{
+	color: lightgrey;
+}
 .logo span{
 	font-family: Alegreya-Italic;
 	font-weight: 800;
 }
 
 header nav{
-	float: right;	
-	
+	float: right;
+
 }
 header nav ul{
 	margin: 0;
@@ -63,7 +66,7 @@ header nav ul li a:hover{
 	.menu-toggle{
 		display: block;
 	}
-	
+
 	header nav{
 		position: absolute;
 		width: 100%;
@@ -74,7 +77,7 @@ header nav ul li a:hover{
 		transition: 0.5s;
 		padding-top: 0;
 		z-index: 1;
-		
+
 	}
 	header nav.active-navMenu{
 		right: 0;

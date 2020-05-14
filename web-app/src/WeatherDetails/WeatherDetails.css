@@ -1,129 +1,80 @@
-.WeatherOverviewContainer {
+/*
+  Author: Homam Jabir
+  Co-Authors:
+*/
+.WeatherDetailsContainer {
+	height: 100vh;
+	padding-top: calc(100px + 2%);
 	text-align: center;
+	
 }
 
-.Rectangle11 {
-	position: absolute;
-	width: 1715px;
-	height: 620px;
-	left: 103px;
-	top: 190px;
+.Rectangle1 {
+	margin: 0 auto; 
+	width: 90vw;
+	height: calc(100vh - 30%);
+	top: 150px;
+
+	font-size: 2vw;
 
 	background: #F5F5F5;
 	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 8px;	
+	border-radius: 8px;		
 }
 
-.Rectangle22 {
-	position: absolute;
-	width: 484px;
-	height: 345px;
-	top: 87px;
-	font-size: 25px;
-
-	background: #E5E5E5;
-	border: 1px solid #000000;
-	box-sizing: border-box;
+.Table1 {
+	padding-top: 1%;
+	padding-left: 22.2vw;
+	font-size: 1vw;
+ 
 }
-
-.hem1 {
-	left: 65px;
-}
-
-.hem2 {
-	left: 614px;
-}
-
-.hem3 {
-	left: 1163px;
-}
-
-.RectangleSmall {
-	position: absolute;
-	width: 443px;
-	height: 45px;
-	left: 20px;
-	font-size: 20px;
-
-	background: #809050;
-	border: 1px solid #000000;
-	box-sizing: border-box;
-}
-
-.RectangleMini {
-	position: absolute;
-	width: 203px;
-	height: 45px;
-	left: 20px;
-	font-size: 20px;
-
-	background: #809050;
-	border: 1px solid #000000;
-	box-sizing: border-box;
-}
-
-.pos1 {
-	top: 50px;
-}
-.pos2 {
-	top: 50px;
-	left: 260px;
-}
-.pos3 {
-	top: 120px;
-} 
-.pos4 {
-	top: 190px;
-}
-.pos5 {
-	top: 260px;
-}
-
-.DateInfo {
-	position: absolute;
-	width: 400px;
-	height: 170px;
-	left: 0px;
-	top: 0px;
-
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 35;
-	line-height: 75px;
-}
-
-#images {
-
-	left: 700px;
-	top: 100px;
-
-	border: 2px solid#000000;
-
-	display: block;
-	max-width:230px;
-	max-height:95px;
-	width: auto;
-	height: auto;
-
-}
-
-#button {
-	position: absolute;
-	width: 366px;
-	height: 108px;
-	left: 674px;
-	top: 456px;
-	font-size: 35px;
-
-	background: #809050;
-
-	border: 1px solid #333333;
-	border-radius: 10px;
-	transition-duration: 0.4s;
-}
-
-.button:hover {
-	background-color: #4CAF50; /* Green */
+    
+.Column1 td {
+	background: #556b2f;
+	width: 9vw;
+	height: 8vh;
 	color: white;
-  }
+}
+  
+.Row1 td {
+	background: lightgrey;
+	vertical-align: center;
+	width: 9vw;
+	height: 5vh;
+}
+
+.button1 {
+	position: absolute;
+	left: 48.7vw;
+	
+}
+
+@media screen and (max-width: 1224px){
+	.WeatherDetailsContainer{
+        height: 130vh;
+	}
+
+	.Rectangle1 {
+		height: 170vw;
+		font-size: 5vw;
+	}
+	.Table1 {
+		padding-top: 10px;
+		padding-left: 0vw;
+		height: 100vw;
+		margin: 0 auto;
+		font-size: 2.6vw;
+	}
+	.Column1 td {
+		width: 18vw;
+		height: 15vw;
+	}
+	.Row1 td {
+		width: 18vw;
+		height: 15vw;
+		font-size: 4vw;
+	}
+}
+
+
+
