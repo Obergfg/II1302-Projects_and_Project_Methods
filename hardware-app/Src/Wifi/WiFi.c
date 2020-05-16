@@ -11,6 +11,7 @@
 #include "WiFi.h"
 
 
+uint8_t postBuffer[256];
 uint8_t receiveBuffer[512];
 
 
@@ -153,6 +154,21 @@ HAL_StatusTypeDef setMux(UART_HandleTypeDef *huart){
 
 
 /*
+    * Closes the connection the ESP8266 module has established.
+    *
+		* @huart handles Structure definition
+    *
+    * @return is the status of the connection between STM32 and ESP8266.
+    */
+HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
+
+		uint8_t close[] = "AT+CIPCLOSE\r\n\r\n";
+	
+		return transmit(close, sizeof(close), huart);
+}
+
+
+/*
     * Initates a SSl connection between the ESP8266 module and a Firebase database.
     *
 		* @huart handles Structure definition
@@ -165,20 +181,19 @@ HAL_StatusTypeDef initateConnection(UART_HandleTypeDef *huart){
 	return	transmit(start, sizeof(start), huart);
 }
 
-
 /*
-    * Sends the given light data to the Firebase database.
-    *
-    * @data is the light data received from the STM32 module.
-		* @huart handles Structure definition
-    *
-    * @return is the status of the connection between STM32 and ESP8266.
-    */
-HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
-
+* Creates the post message used to specify where the ESP8266 module sends the given data.
+*
+* @adress is the incomplete URL to the client receiving the data.
+* @data is the data being sent.
+* @huart handles Structure definition
+*
+* @return is the size of the complete message being sent to the ESP8266 module. 
+*/
+int createPostMessage(char* adress, unsigned int data, UART_HandleTypeDef *huart){
+	
 	uint8_t contentLength[8];
 	uint8_t sendBuffer[32];
-	uint8_t postBuffer[256];
 	
 	sprintf(contentLength, "%d", data);
 	
@@ -187,9 +202,8 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 	while(contentLength[cl] != NULL)
 		   cl++;
 	
-	char post[] = POSTLIGHT;
 	
-	sprintf(postBuffer, post, cl, data);
+	sprintf(postBuffer, adress, cl, data);
 	
 	int cnt = 0;
 	
@@ -200,8 +214,24 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 	
 	transmit(sendBuffer, sizeof(sendBuffer), huart);
 	
-	return	transmit(postBuffer, cnt, huart);
+  return cnt;
+}
+
+/*
+    * Sends the given light data to the Firebase database.
+    *
+    * @data is the light data received from the STM32 module.
+		* @huart handles Structure definition
+    *
+    * @return is the status of the connection between STM32 and ESP8266.
+    */
+HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 	
+		char post[] = POSTLIGHT;
+
+	  int size = createPostMessage(post,  data, huart);
+	
+		return transmit(postBuffer, size, huart);
 }
 
 /*
@@ -214,46 +244,12 @@ HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart){
 */
 HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart){
 
-	uint8_t contentLength[8];
-	uint8_t sendBuffer[32];
-	uint8_t postBuffer[256];
-	
-	sprintf(contentLength, "%d", data);
-	
-	int cl = 0;
-	
-	while(contentLength[cl] != NULL)
-		   cl++;
-	
 	char post[] = POSTMOISTURE;
 	
-	sprintf(postBuffer, post ,cl ,data);
+	int size = createPostMessage(post, data, huart);
 	
-	int cnt = 0;
+	return	transmit(postBuffer, size, huart);
 	
-	while(postBuffer[cnt] != NULL)
-		   cnt++;
-	
-	sprintf(sendBuffer, "AT+CIPSEND=%d\r\n", cnt);
-	
-	transmit(sendBuffer, sizeof(sendBuffer), huart);
-	
-	return	transmit(postBuffer, cnt, huart);
-	
-}
-
-/*
-    * Closes the connection the ESP8266 module has established.
-    *
-		* @huart handles Structure definition
-    *
-    * @return is the status of the connection between STM32 and ESP8266.
-    */
-HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
-
-	uint8_t close[] = "AT+CIPCLOSE\r\n\r\n";
-	
-	return transmit(close, sizeof(close), huart);
 }
 
 /*
@@ -266,12 +262,12 @@ HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart){
     */
 HAL_StatusTypeDef initiateLightTransmission(unsigned int lightData, UART_HandleTypeDef *huart){
 	
-		setSSLbuffer(huart);
+		  setSSLbuffer(huart);
 	    setMux(huart);
 	    initateConnection(huart);
     	sendLightData(lightData, huart);
 
-		return closeConnection(huart);
+			return closeConnection(huart);
 }
 
 
@@ -299,12 +295,12 @@ Runs functions in the WiFi.c file to connect to wifi.
 return 0 if false, 1 if true.
 */
 HAL_StatusTypeDef connectToWifi(UART_HandleTypeDef *huart){
-	restoreWiFi(huart);
-	HAL_Delay(1000);
-	setCWMode(huart);
-	HAL_Delay(1000);
-	connectToRouter(huart);
+		restoreWiFi(huart);
+		HAL_Delay(1000);
+		setCWMode(huart);
+		HAL_Delay(1000);
+		connectToRouter(huart);
 	
-	return closeConnection(huart);
+		return closeConnection(huart);
 }
 

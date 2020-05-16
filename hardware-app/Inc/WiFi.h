@@ -13,22 +13,6 @@
 #ifndef WIFI_H
 #define WIFI_H
 
-
-HAL_StatusTypeDef transmit(uint8_t* command ,int size, UART_HandleTypeDef *huart);
-HAL_StatusTypeDef restartWiFi(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef restoreWiFi(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef connectToRouter(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef setSSLbuffer(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef getAP(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef setCWMode(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef getIP(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef setMux(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef initateConnection(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef sendLightData(unsigned int data, UART_HandleTypeDef *huart);
-HAL_StatusTypeDef sendMoistureData(unsigned int data, UART_HandleTypeDef *huart);
-HAL_StatusTypeDef closeConnection(UART_HandleTypeDef *huart);
-void updateMacAddress(UART_HandleTypeDef *huart);
-
 HAL_StatusTypeDef initiateLightTransmission(unsigned int data, UART_HandleTypeDef *huart);
 HAL_StatusTypeDef initiateMoistureTransmission(unsigned int data, UART_HandleTypeDef *huart);
 
